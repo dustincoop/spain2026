@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>España 2026 — The Cooper Family</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--cream:#F6F2EB;--card:#FEFCF8;--ink:#1B1610;--ink2:#3C3530;--muted:#857D74;
+    --border:#E5DAC8;--border2:#EDE5D8;
+    --mar:#C0432A;--mar-l:#FBF0EC;--val:#C87B0C;--val-l:#FBF5E8;
+    --bas:#2B5E3F;--bas-l:#EBF3EE;--drv:#5B4A7E;--drv-l:#F3F0FA;
+    --bday:#D44070;--bday-l:#FEF0F5;--urg:#C0340E;--urg-l:#FEF3F0;
+    --kids-bg:#EDF6FB;--kids-br:#90C4D8;--adlt-bg:#F7F0F5;--adlt-br:#C090B4;
+    --sh:0 2px 16px rgba(0,0,0,.05);}
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--cream);color:var(--ink);font-family:'Plus Jakarta Sans',sans-serif;
+    font-weight:300;line-height:1.72;font-size:13.5px;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,.serif{font-family:'Playfair Display',serif}
+  /* NAV */
+  .nav{position:sticky;top:0;z-index:100;background:var(--card);border-bottom:1px solid var(--border);
+    display:flex;overflow-x:auto;scrollbar-width:none;box-shadow:0 2px 10px rgba(0,0,0,.06)}
+  .nav::-webkit-scrollbar{display:none}
+  .nav a{flex:0 0 auto;padding:12px 16px;font-size:11.5px;font-weight:500;letter-spacing:.04em;
+    text-decoration:none;color:var(--muted);white-space:nowrap;border-bottom:2px solid transparent;transition:.2s}
+  .nav a.mar{color:var(--mar);border-color:var(--mar)}.nav a.val{color:var(--val);border-color:var(--val)}.nav a.bas{color:var(--bas);border-color:var(--bas)}
+  /* HERO */
+  .hero{background:linear-gradient(160deg,#1A1610 0%,#2D2218 40%,#3A2C1C 100%);
+    color:#F6F2EB;padding:72px 24px 56px;text-align:center;position:relative;overflow:hidden}
+  .hero::before{content:'';position:absolute;inset:0;opacity:.15;
+    background:radial-gradient(ellipse at 30% 50%,rgba(200,123,12,.3) 0%,transparent 60%),
+    radial-gradient(ellipse at 70% 30%,rgba(43,94,63,.4) 0%,transparent 60%)}
+  .hero-tag{display:inline-block;border:1px solid rgba(255,255,255,.22);border-radius:20px;
+    padding:4px 16px;font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:22px}
+  .hero h1{font-size:clamp(2.2rem,7vw,4rem);font-weight:400;line-height:1.15;margin-bottom:10px;color:#F6F2EB}
+  .hero h1 em{font-style:italic;color:#E8C080}
+  .hero-sub{color:rgba(255,255,255,.55);font-size:14px;letter-spacing:.06em;margin-bottom:36px}
+  .hero-pills{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+  .hp{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16);border-radius:8px;
+    padding:9px 16px;font-size:12px;color:rgba(255,255,255,.75)}
+  .hp strong{display:block;color:#E8C080;font-size:13.5px;font-weight:500}
+  /* URGENT */
+  .urg-wrap{max-width:920px;margin:28px auto;padding:0 20px}
+  .urg-box{background:var(--urg-l);border-left:4px solid var(--urg);border-radius:0 10px 10px 0;padding:20px 22px}
+  .urg-title{font-family:'Playfair Display',serif;font-size:16px;font-weight:600;color:var(--urg);margin-bottom:12px}
+  .urg-grid{display:grid;gap:7px}
+  .urg-item{display:flex;gap:10px;align-items:flex-start;font-size:12.5px;line-height:1.55}
+  .urg-dot{width:6px;height:6px;border-radius:50%;background:var(--urg);flex-shrink:0;margin-top:6px}
+  .urg-item strong{color:var(--urg);font-weight:500}
+  /* BOOKINGS */
+  .bk-wrap{max-width:920px;margin:0 auto 4px;padding:0 20px}
+  .bk-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+  .bk{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;box-shadow:var(--sh)}
+  .bk-lbl{font-size:9.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
+  .bk-main{font-family:'Playfair Display',serif;font-size:16px;font-weight:600;line-height:1.25;margin-bottom:5px}
+  .bk-detail{font-size:12px;color:var(--muted);line-height:1.65}
+  .bk-conf{font-size:10px;color:var(--muted);margin-top:7px;font-family:monospace;background:var(--cream);padding:3px 8px;border-radius:4px;display:inline-block}
+  /* REGION */
+  .rgn{max-width:920px;margin:40px auto 0;padding:0 20px}
+  .rgn-bar{height:3px;border-radius:2px;margin-bottom:14px}
+  .rgn-bar.mar{background:var(--mar)}.rgn-bar.val{background:var(--val)}.rgn-bar.bas{background:var(--bas)}
+  .rgn-title{font-size:clamp(1.7rem,4vw,2.5rem);font-weight:400;line-height:1.2;margin-bottom:4px}
+  .rgn-sub{font-size:13px;color:var(--muted);margin-bottom:3px}
+  .rgn-hotel{font-size:12px;font-weight:500;letter-spacing:.03em;margin-bottom:6px}
+  .rgn-hotel.mar{color:var(--mar)}.rgn-hotel.val{color:var(--val)}.rgn-hotel.bas{color:var(--bas)}
+  .rgn-logistics{font-size:12px;color:var(--muted);background:var(--card);border:1px solid var(--border2);border-radius:8px;padding:10px 14px;margin-bottom:22px;line-height:1.65}
+  .rgn-logistics strong{color:var(--ink2);font-weight:500}
+  /* DAY CARDS */
+  .days{max-width:920px;margin:0 auto;padding:0 20px 20px;display:grid;gap:18px}
+  .day{background:var(--card);border-radius:14px;overflow:hidden;box-shadow:var(--sh);border:1px solid var(--border2)}
+  .day-head{display:flex;align-items:center;gap:15px;padding:14px 20px 13px;border-bottom:1px solid var(--border2)}
+  .dbadge{display:flex;flex-direction:column;align-items:center;justify-content:center;width:48px;height:48px;border-radius:9px;flex-shrink:0}
+  .dbadge .dn{font-family:'Playfair Display',serif;font-size:21px;font-weight:600;line-height:1;color:#fff}
+  .dbadge .dm{font-size:8.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.72)}
+  .db-mar{background:var(--mar)}.db-val{background:var(--val)}.db-bas{background:var(--bas)}.db-bday{background:var(--bday)}
+  .day-head-txt h3{font-size:15.5px;font-weight:600;line-height:1.25}
+  .day-head-txt .dsub{font-size:12px;color:var(--muted)}
+  .day-body{padding:16px 20px 20px;display:grid;gap:16px}
+  /* OVERVIEW */
+  .overview{font-size:13px;color:var(--ink2);line-height:1.72;border-left:3px solid var(--border);padding-left:13px}
+  /* PANELS */
+  .panels{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media(max-width:560px){.panels{grid-template-columns:1fr}}
+  .panel{border-radius:10px;padding:12px 15px}
+  .panel-k{background:var(--kids-bg);border:1px solid var(--kids-br)}
+  .panel-a{background:var(--adlt-bg);border:1px solid var(--adlt-br)}
+  .panel-title{font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:5px}
+  .ptk{color:#357A9A}.pta{color:#8A4A72}
+  .panel ul{list-style:none;display:grid;gap:5px}
+  .panel li{font-size:12px;line-height:1.5;padding-left:13px;position:relative}
+  .panel li::before{content:'–';position:absolute;left:0;color:var(--muted)}
+  /* SECTION LABEL */
+  .slbl{font-size:9.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+    margin-bottom:9px;display:flex;align-items:center;gap:8px}
+  .slbl::after{content:'';flex:1;height:1px;background:var(--border)}
+  /* COFFEE */
+  .coffee-row{display:flex;flex-wrap:wrap;gap:7px}
+  .ccip{background:#F7F2E3;border:1px solid #DDD0B5;border-radius:20px;padding:5px 13px;font-size:11.5px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+  .ccip strong{font-weight:500}.ccip em{font-style:normal;color:var(--muted);font-size:11px}
+  /* BITES */
+  .bites-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:8px}
+  .bite{background:var(--cream);border:1px solid var(--border);border-radius:8px;padding:9px 12px}
+  .bite-ico{font-size:15px;margin-bottom:3px;display:block}
+  .bite strong{display:block;font-weight:500;font-size:12.5px;margin-bottom:2px}
+  .bite span{color:var(--muted);font-size:11.5px;line-height:1.45}
+  /* EAT */
+  .eat-list{display:grid;gap:9px}
+  .eat-row{display:flex;gap:11px;align-items:flex-start}
+  .edot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:6px}
+  .edot-mar{background:var(--mar)}.edot-val{background:var(--val)}.edot-bas{background:var(--bas)}.edot-bday{background:var(--bday)}
+  .enr{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:2px}
+  .eat-name{font-weight:500;font-size:13px}
+  .eat-desc{font-size:12px;color:var(--muted);line-height:1.55}
+  .eat-note{font-size:11px;color:var(--urg);font-weight:500;margin-top:2px}
+  /* DO */
+  .do-list{display:grid;gap:7px}
+  .do-item{font-size:12.5px;padding-left:15px;position:relative;line-height:1.6}
+  .do-item::before{content:'→';position:absolute;left:0;color:var(--muted);font-size:11px;top:2px}
+  /* MAP LINK */
+  .mlink{color:inherit;text-decoration:none;border-bottom:1px dotted var(--border);transition:border-color .15s}
+  .mlink:hover{border-bottom-color:var(--ink2)}
+  /* DISTANCE BADGES */
+  .dist{font-size:10.5px;font-weight:600;padding:2px 8px;border-radius:20px;display:inline-block;white-space:nowrap}
+  .dist.walk{background:#E6F3EC;color:#26704A}
+  .dist.drive{background:#F4EDE0;color:#8A4E10}
+  .dxs{font-size:9.5px;padding:1px 7px}
+  /* DRIVE CARD */
+  .drv-wrap{max-width:920px;margin:32px auto 0;padding:0 20px}
+  .drv-card{background:var(--drv-l);border:1px solid #C8BEDE;border-radius:14px;padding:20px 22px;position:relative;overflow:hidden}
+  .drv-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--drv)}
+  .drv-title{font-family:'Playfair Display',serif;font-size:18px;font-weight:600;color:var(--drv);margin-bottom:3px}
+  .drv-sub{font-size:12px;color:var(--muted);margin-bottom:14px}
+  .drv-route{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+  .drv-stop{background:#fff;border:1px solid #C8BEDE;border-radius:7px;padding:6px 13px;font-size:12px;font-weight:500;color:var(--drv)}
+  .drv-arr{color:var(--drv);opacity:.5;font-size:14px}
+  .drv-body{display:grid;gap:16px}
+  .drv-notes{display:grid;gap:5px}
+  .drv-note{font-size:12px;padding-left:13px;position:relative;line-height:1.55;color:var(--ink2)}
+  .drv-note::before{content:'·';position:absolute;left:0;color:var(--drv);font-size:18px;top:-3px}
+  /* BIRTHDAY */
+  .bday-card{background:linear-gradient(135deg,var(--bday-l) 0%,#FEF8F0 100%);border:2px solid var(--bday);border-radius:14px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.08)}
+  .bday-hd{background:var(--bday);padding:14px 20px;display:flex;align-items:center;gap:12px}
+  .bday-hd h3{font-size:17px;font-weight:600;color:#fff}
+  .bday-bd{padding:16px 20px 20px;display:grid;gap:16px}
+  /* DEPARTURE */
+  .dep-wrap{max-width:920px;margin:36px auto;padding:0 20px 44px}
+  .dep-card{background:var(--ink);color:var(--cream);border-radius:14px;padding:26px 26px 30px}
+  .dep-lbl-top{font-size:9.5px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:5px}
+  .dep-title{font-family:'Playfair Display',serif;font-size:23px;font-weight:400;color:#E8C080;margin-bottom:3px}
+  .dep-sub{font-size:12.5px;color:rgba(255,255,255,.5);margin-bottom:26px}
+  .dep-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:16px}
+  .dep-item{border-left:2px solid rgba(255,255,255,.14);padding-left:13px}
+  .dep-item-lbl{font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.38);margin-bottom:3px}
+  .dep-item-val{font-family:'Playfair Display',serif;font-size:16px;color:#E8C080;font-weight:600}
+  .dep-item-note{font-size:11.5px;color:rgba(255,255,255,.5);line-height:1.55;margin-top:2px}
+  footer{text-align:center;padding:24px 20px 44px;font-size:11.5px;color:var(--muted);letter-spacing:.05em;display:flex;flex-direction:column;gap:4px}
+  @media print{.nav{display:none}.day,.bday-card,.drv-card{break-inside:avoid}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="#mar" class="mar">Marbella</a>
+  <a href="#drive1">Drive Day 1</a>
+  <a href="#val" class="val">Valencia</a>
+  <a href="#drive2">Drive Day 2</a>
+  <a href="#bas" class="bas">San Sebastián</a>
+  <a href="#dep">Departure</a>
+</nav>
+<div class="hero">
+  <div class="hero-tag">16 Days · 5 People · 1 First Birthday</div>
+  <h1>The Cooper Family<br><em>España 2026</em></h1>
+  <div class="hero-sub">Jun 17 &ndash; Jul 2 &nbsp;·&nbsp; Marbella &nbsp;·&nbsp; Valencia &nbsp;·&nbsp; San Sebastián</div>
+  <div class="hero-pills">
+    <div class="hp"><strong>DL0126</strong>JFK → MAD · Jun 16 8:20pm</div>
+    <div class="hp"><strong>Sixt Kodiaq</strong>Res. 9733734731 · Jun 17–Jul 2</div>
+    <div class="hp"><strong>DL0127</strong>MAD → JFK · Jul 2 12:45pm</div>
+  </div>
+</div>
+<div class="urg-wrap">
+  <div class="urg-box">
+    <div class="urg-title">⚠ Book These Now</div>
+    <div class="urg-grid">
+      <div class="urg-item"><div class="urg-dot"></div><div><strong>Elkano · Getaria (Jun 30)</strong> — Book months ahead. Grilled whole turbot, à la carte, not a tasting menu. Email: info@restauranteelkano.com</div></div>
+      <div class="urg-item"><div class="urg-dot"></div><div><strong>Bar Nestor · San Sebastián (Jun 28)</strong> — No reservations. Sign up IN PERSON at 11am. Queue forms early. Cash only.</div></div>
+      <div class="urg-item"><div class="urg-dot"></div><div><strong>Nobu Marbella · Birthday Dinner (Jun 20)</strong> — Reserve now and mention Sofia's 1st birthday.</div></div>
+      <div class="urg-item"><div class="urg-dot"></div><div><strong>Canalla Bistro · Valencia (Jun 23)</strong> — Reserve online a few days ahead.</div></div>
+      <div class="urg-item"><div class="urg-dot"></div><div><strong>Pastelería San Lorenzo · Marbella</strong> — Order Sofia's birthday cake on Jun 18 or 19.</div></div>
+      <div class="urg-item"><div class="urg-dot"></div><div><strong>Tell Gran Marbella Resort</strong> about Sofia's 1st birthday at check-in.</div></div>
+    </div>
+  </div>
+</div>
+<div class="bk-wrap">
+  <div class="bk-row">
+    <div class="bk"><div class="bk-lbl">Outbound Flight</div><div class="bk-main">DL0126 · JFK → MAD</div><div class="bk-detail">Jun 16 · 8:20pm → Jun 17 9:55am<br>A330-300 · Seats 35C/F + 2<br>JFK T4 → MAD T1 · Nonstop 7h35m</div></div>
+    <div class="bk"><div class="bk-lbl">Return Flight</div><div class="bk-main">DL0127 · MAD → JFK</div><div class="bk-detail">Jul 2 · 12:45pm → 3:07pm<br>A330-300 · Seats 34C/F + 2<br>MAD T1 → JFK T4 · Nonstop 8h22m</div></div>
+    <div class="bk"><div class="bk-lbl">Car Rental · Sixt</div><div class="bk-main">Skoda Kodiaq or similar</div><div class="bk-detail">Jun 17 10:00am → Jul 2 10:00am · MAD T4<br>Baby seat + 2 boosters + GPS · €1,428.48</div><div class="bk-conf">Res. 9733734731</div></div>
+    <div class="bk"><div class="bk-lbl">Hotel · Marbella</div><div class="bk-main">Gran Marbella Resort</div><div class="bk-detail">Jun 17 (3pm) → Jun 21 (12pm) · 4 nights<br>Ctra.A7 Km 1034A, Urb. Real de Zaragoza</div><div class="bk-conf">72071407899771</div></div>
+    <div class="bk"><div class="bk-lbl">Hotel · Valencia</div><div class="bk-main">MYR Palacio Vallier</div><div class="bk-detail">Jun 21 (4pm) → Jun 26 (12pm) · 5 nights<br>Plaza de Manises 7, Historic Centre</div><div class="bk-conf">72071447474776</div></div>
+    <div class="bk"><div class="bk-lbl">Hotel · San Sebastián</div><div class="bk-main">Arbaso Hotel</div><div class="bk-detail">Jun 26 → Jul 1 · 5 nights<br>Calle Hondarribia 24, Centro</div></div>
+  </div>
+</div>
+
+<div class="rgn" id="mar">
+  <div class="rgn-bar mar"></div>
+  <div class="rgn-title">Marbella</div>
+  <div class="rgn-sub">Jun 17–20 · Costa del Sol · Andalucía</div>
+  <div class="rgn-hotel mar"><a class="mlink" href="https://maps.google.com/?q=Gran+Marbella+Resort+Beach+Club+Ctra+A7+Km+1034A+Real+de+Zaragoza" target="_blank" rel="noopener">Gran Marbella Resort &amp; Beach Club</a> · Ctra.A7 Km 1034A, Urb. Real de Zaragoza · Conf. 72071407899771</div>
+  <div class="rgn-logistics"><strong>Location context:</strong> The resort is in Real de Zaragoza, east of Marbella town — the beach is literally on-site, but <strong>Old Town Marbella is a 15-min drive (12km)</strong> and <strong>Puerto Banús is a 22-min drive (19km)</strong>. Everything below that isn't the beach requires a car or taxi.</div>
+</div>
+<div class="days">
+
+  <div class="day">
+    <div class="day-head">
+      <div class="dbadge db-mar"><div class="dn">17</div><div class="dm">Jun</div></div>
+      <div class="day-head-txt"><h3>Arrival Day — Córdoba Stop → Marbella</h3><div class="dsub">Tuesday · Land MAD 9:55am · Drive A-4 South · Arrive ~5:30pm</div></div>
+    </div>
+    <div class="day-body">
+      <div class="overview">Land 9:55am, Sixt pickup at T4 (30-40 min for car seats). Drive south on A-4, 2-hour Córdoba stop, arrive Gran Marbella by 5:30-6pm. Short Old Town walk to shake the flight off.</div>
+      <div class="panels">
+        <div class="panel panel-k"><div class="panel-title ptk">🧒 With Kids</div><ul><li>Have snacks and a tablet ready before Sixt — car seat installation with 3 tired kids takes time</li><li>Córdoba max 2 hours — hot and everyone will be jet-lagged. Bar Santos tortilla is 2 min from the Mezquita, eat standing and move on</li><li>Skip the Mezquita interior queue with tired kids — exterior photo + Judería walk is enough</li><li>Plaza de los Naranjos in Old Town Marbella is flat and open — good for letting kids decompress</li></ul></div>
+        <div class="panel panel-a"><div class="panel-title pta">🍷 Without Kids — After Bedtime</div><ul><li>Old Town Marbella transforms after dark — walk Calle Nueva alone, grab a glass of fino at any bar</li><li>Plaza de los Naranjos for a solo drink while the other parent stays with kids</li></ul></div>
+      </div>
+      <div><div class="slbl">☕ Coffee</div>
+        <div class="coffee-row">
+          <div class="ccip"><a class="mlink" href="https://maps.google.com/?q=Brocca+Coffee+Marbella" target="_blank" rel="noopener"><strong>Brocca Coffee</strong></a><span class="dist drive dxs">🚗 15 min · 12km</span> <em>Best in Marbella · Old Town</em></div>
+          <div class="ccip"><a class="mlink" href="https://maps.google.com/?q=Plaza+de+los+Naranjos+Marbella" target="_blank" rel="noopener"><strong>Any café · Plaza de los Naranjos</strong></a><span class="dist drive dxs">🚗 15 min · 12km</span> <em>Arrival evening · terrace · orange trees</em></div>
+        </div>
+      </div>
+      <div><div class="slbl">🥐 Bites + Sweets</div>
+        <div class="bites-grid">
+          <div class="bite"><span class="bite-ico">🥚</span><strong><a class="mlink" href="https://maps.google.com/?q=Bar+Santos+Córdoba+tortilla" target="_blank" rel="noopener">Bar Santos · Córdoba</a> <span class="dist drive dxs">🚗 1h 45min on route</span></strong><span>The legendary thick tortilla. €2/wedge, eat standing. 2-min walk from the Mezquita on your drive south.</span></div>
+          <div class="bite"><span class="bite-ico">🍅</span><strong><a class="mlink" href="https://maps.google.com/?q=Bar+Los+Berengueles+Córdoba" target="_blank" rel="noopener">Salmorejo</a> <span class="dist drive dxs">🚗 1h 45min on route</span></strong><span>Cold tomato cream, thicker than gazpacho — Córdoba's own. €3 at any bar.</span></div>
+          <div class="bite"><span class="bite-ico">🍞</span><strong>Tostada con tomate y aceite</strong><span>Tomato-rubbed toast with olive oil. €1.50 anywhere. The Spanish morning ritual.</span></div>
+          <div class="bite"><span class="bite-ico">🍪</span><strong>Mantecados · Córdoba</strong><span>Crumbly almond shortbread from any Córdoba bakery. Buy a box — they're famous for them.</span></div>
+        </div>
+      </div>
+      <div><div class="slbl">🍽 Eat</div>
+        <div class="eat-list">
+          <div class="eat-row"><div class="edot edot-mar"></div><div><div class="enr"><a class="mlink" href="https://maps.google.com/?q=BiBo+Marbella+Spain" target="_blank" rel="noopener">BiBo Marbella</a><span class="dist drive">🚗 15 min · 12km</span></div><div class="eat-desc">Dani García's casual restaurant. Creative Andalucian food, family-fine, no tasting menus. The best all-rounder in Marbella.</div></div></div>
+          <div class="eat-row"><div class="edot edot-mar"></div><div><div class="enr"><a class="mlink" href="https://maps.google.com/?q=El+Patio+de+la+Alcazaba+Marbella" target="_blank" rel="noopener">El Patio de la Alcazaba</a><span class="dist drive">🚗 15 min · 12km</span></div><div class="eat-desc">Rooftop in Old Town Marbella. Relaxed, beautiful setting, solid Andalucian classics.</div></div></div>
+          <div class="eat-row"><div class="edot edot-mar"></div><div><div class="enr"><span style="font-weight:500">Arrival night: easy chiringuito or hotel</span></div><div class="eat-desc">Don't overcommit on arrival. Hotel terrace or nearest beach chiringuito is perfect.</div></div></div>
+        </div>
+      </div>
+      <div><div class="slbl">🗺 Do</div>
+        <div class="do-list">
+          <div class="do-item"><a class="mlink" href="https://maps.google.com/?q=Bar+Santos+Córdoba" target="_blank" rel="noopener"><strong>Córdoba: Bar Santos + Mezquita exterior</strong></a> <span class="dist drive dxs">🚗 1h 45min on route</span> — 2-hr stop on the drive south. Tortilla, quick Judería walk, exterior Mezquita photo.</div>
+          <div class="do-item"><a class="mlink" href="https://maps.google.com/?q=Plaza+de+los+Naranjos+Marbella" target="_blank" rel="noopener"><strong>Marbella Old Town evening walk</strong></a> <span class="dist drive dxs">🚗 15 min · 12km</span> — Plaza de los Naranjos, flower-draped alleys. Mention Sofia's birthday at check-in.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="day-head">
+      <div class="dbadge db-mar"><div class="dn">18</div><div class="dm">Jun</div></div>
+      <div class="day-head-txt"><h3>Full Beach + Pool Day</h3><div class="dsub">Wednesday · Gran Marbella Resort · On-site · Costa del Sol</div></div>
+    </div>
+    <div class="day-body">
+      <div class="overview">This is it. Full rest, beach, pool. No agenda. The first full day on Costa del Sol belongs entirely to the water — espetos de sardinas, sangría blanca, and wherever the kids want to be.</div>
+      <div class="panels">
+        <div class="panel panel-k"><div class="panel-title ptk">🧒 With Kids</div><ul><li>Ask at check-in which pool has the shallowest wading section — most resorts have one for under-2s</li><li>Chiringuito lunch: beach umbrella shade, kids in the sand, adults eat grilled fish — perfect format</li><li>Post-lunch nap 1–3pm is sacred. Plan everything around it.</li><li>Buy sunscreen at a farmacia in town — Isdin or Ladival, far superior European SPF</li><li>ORDER Sofia's birthday cake at Pastelería San Lorenzo today or tomorrow (call ahead)</li></ul></div>
+        <div class="panel panel-a"><div class="panel-title pta">🍷 Without Kids</div><ul><li>6:30am solo swim before anyone wakes — the Med at dawn is extraordinary</li><li>Paddleboard or kayak rental from the beach club</li><li>After bedtime: walk Paseo Marítimo west along the beach</li></ul></div>
+      </div>
+      <div><div class="slbl">☕ Coffee</div>
+        <div class="coffee-row">
+          <div class="ccip"><a class="mlink" href="https://maps.google.com/?q=Brocca+Coffee+Marbella" target="_blank" rel="noopener"><strong>Brocca Coffee</strong></a><span class="dist drive dxs">🚗 15 min · 12km</span> <em>Best in Marbella · go on the way somewhere</em></div>
+          <div class="ccip"><a class="mlink" href="https://maps.google.com/?q=Pasteleria+San+Lorenzo+Marbella" target="_blank" rel="noopener"><strong>Pastelería San Lorenzo</strong></a><span class="dist drive dxs">🚗 15 min · 12km</span> <em>ORDER BIRTHDAY CAKE here today — call ahead</em></div>
+        </div>
+      </div>
+      <div><div class="slbl">🥐 Bites + Sweets</div>
+        <div class="bites-grid">
+          <div class="bite"><span class="bite-ico">🐟</span><strong><a class="mlink" href="https://maps.google.com/?q=espetos+sardinas+chiringuito+Marbella+beach" target="_blank" rel="noopener">Espetos de sardinas</a> <span class="dist drive dxs">🚗 on-site</span></strong><span>Sardines on cane skewers grilled over open beach coals. THE Marbella thing. Any chiringuito.</span></div>
+          <div class="bite"><span class="bite-ico">🍞</span><strong>Pan con tomate</strong><span>Tomato-rubbed bread with olive oil. €2. Perfect beach fuel.</span></div>
+          <div class="bite"><span class="bite-ico">🍉</span><strong>Fresh watermelon</strong><span>Sold from carts on the beach. €3/bag. Absolute necessity.</span></div>
+          <div class="bite"><span class="bite-ico">🦐</span><strong>Gambas a la plancha</strong><span>Whole grilled prawns, coarse sea salt. Any chiringuito. Share them.</span></div>
+          <div class="bite"><span class="bite-ico">🧇</span><strong>Churros con chocolate</strong><span>Any café for breakfast. Thick hot chocolate for dipping. €4-5.</span></div>
+          <div class="bite"><span class="bite-ico">🍋</span><strong>Limón granizado</strong><span>Crushed lemon ice from any kiosk. €2.50.</span></div>
+        </div>
+      </div>
+      <div><div class="slbl">🍽 Eat</div>
+        <div class="eat-list">
+          <div class="eat-row"><div class="edot edot-mar"></div><div><div class="enr"><span style="font-weight:500">Chiringuito lunch · on-site</span> <span class="dist walk">🏖️ on-site</span></div><div class="eat-desc">Espetos + gambas + salad + sangría blanca. The whole Marbella experience in one lunch.</div></div></div>
+          <div class="eat-row"><div class="edot edot-mar"></div><div><div class="enr"><a class="mlink" href="https://maps.google.com/?q=Restaurante+Santiago+Marbella" target="_blank" rel="noopener">Restaurante Santiago</a><span class="dist drive">🚗 15 min · 12km</span></div><div class="eat-desc">Legendary Marbella institution on the Paseo Marítimo. Fresh fish, great paella, family-fine.</div></div></div>
+          <div class="eat-row"><div class="edot edot-mar"></div><div><div class="enr"><a class="mlink" href="https://maps.google.com/?q=BiBo+Marbella+Spain" target="_blank" rel="noopener">BiBo Marbella</a><span class="dist drive">🚗 15 min · 12km</span></div><div class="eat-desc">Dani García's casual restaurant. Creative Andalucian food, family-fine, no tasting menus. The best all-rounder in Marbella.</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="day-head">
+      <div class="dbadge db-mar"><div class="dn">19</div><div class="dm">Jun</div></div>
+      <div class="day-head-txt"><h3>Old Town + Puerto Banús + Golden Mile</h3><div class="dsub">Thursday · Old Town at dawn · Megayachts · Estepona option</div></div>
+    </div>
+    <div class="day-body">
+      <div class="overview">See the Marbella people obsess over. Start before 9am in the whitewashed Old Town, then the megayacht parade at Puerto Banús, the Golden Mile, and the Puente Romano stretch.</div>
+      <div class="panels">
+        <div class="panel panel-k"><div class="panel-title ptk">🧒 With Kids</div><ul><li>Old Town best before 9am — cobblestones but Yoyo-manageable, cool air, streets empty</li><li>Puerto Banús boardwalk is flat and wide — kids love watching the megayachts</li><li>Estepona option (20km west, 25-min drive): free botanical garden, flat, stroller-perfect</li><li>ORDER Sofia's birthday cake at Pastelería San Lorenzo today if not done Jun 18</li></ul></div>
+        <div class="panel panel-a"><div class="panel-title pta">🍷 Without Kids</div><ul><li>Puerto Banús restaurant strip at sunset — sit with Albariño and watch Spain walk by</li><li>Puente Romano hotel beach club day pass (~€70) for the original Marbella beach scene</li><li>Old Town evening solo: Calle Carmen + Calle Nueva, fino sherries, the backstreets are the thing</li></ul></div>
+      </div>
+      <div><div class="slbl">☕ Coffee</div>
+        <div class="coffee-row">
+          <div class="ccip"><a class="mlink" href="https://maps.google.com/?q=Pasteleria+San+Lorenzo+Marbella+Old+Town" target="_blank" rel="noopener"><strong>Pastelería San Lorenzo</strong></a><span class="dist drive dxs">🚗 15 min · 12km</span> <em>Old Town · coffee + ORDER THE CAKE</em></div>
+          <div class="ccip"><a class="mlink" href="https://maps.google.com/?q=Brocca+Coffee+Marbella" target="_blank" rel="noopener"><strong>Brocca Coffee</strong></a><span class="dist drive dxs">🚗 15 min · 12km</span> <em>If starting from hotel first</em></div>
+        </div>
+      </div>
+      <div><div class="slbl">🥐 Bites + Sweets</div>
+        <div class="bites-grid">
+          <div class="bite"><span class="bite-ico">🧇</span><strong>Churros con chocolate</strong><span>From an Old Town café before the walk. Non-negotiable morning carb.</span></div>
+          <div class="bite"><span class="bite-ico">🍦</span><strong>Artisan gelato</strong><span>Multiple heladerías in Old Town. Pistachio and stracciatella are the move.</span></div>
+          <div class="bite"><span class="bite-ico">🍋</span><strong>Limón granizado</strong><span>Every kiosk has it. €2.50, every afternoon.</span></div>
+          <div class="bite"><span class="bite-ico">🐟</span><strong>Pescaíto frito</strong><span>Small fried fish in a paper cone from any freiduría window. The Andalucian street food. €4.</span></div>
+          <div class="bite"><span class="bite-ico">🎂</span><strong><a class="mlink" href="https://maps.google.com/?q=Pasteleria+San+Lorenzo+Marbella" target="_blank" rel="noopener">Pastelería San Lorenzo</a> <span class="dist drive dxs">🚗 15 min · 12km</span></strong><span>Napoleones, polvorones, pasteles. Order Sofia's birthday cake here.</span></div>
+        </div>
+      </div>
+      <div><div class="slbl">🍽 Eat</div>
+        <div class="eat-list">
+          <div class="eat-row"><div class="edot edot-mar"></div><div><div class="enr"><a class="mlink" href="https://maps.google.com/?q=BiBo+Marbella+Spain" target="_blank" rel="noopener">BiBo Marbella</a><span class="dist drive">🚗 15 min · 12km</span></div><div class="eat-desc">Dani García's casual restaurant. Creative Andalucian food, family-fine, no tasting menus. The best all-rounder in Marbella.</div></div></div>
+          <div class="eat-row"><div class="edot edot-mar"></div><div><div class="enr"><a class="mlink" href="https://maps.google.com/?q=Puerto+Banus+marina+restaurants+Marbella" target="_blank" rel="noopener" style="font-weight:500">Puerto Banús marina lunch</a> <span class="dist drive">🚗 22 min · 19km</span></div><div class="eat-desc">Any terrace on the marina strip. The point is the scene and the yachts.</div></div></div>
+          <div class="eat-row"><div class="edot edot-mar"></div><div><div class="enr"><a class="mlink" href="https://maps.google.com/?q=La+Nina+del+Bistec+Marbella" target="_blank" rel="noopener">La Niña del Bistec</a><span class="dist drive">🚗 15 min · 12km</span></div><div class="eat-desc">Casual, local, young crowd. Good for a low-key walk-in dinner.</div></div></div>
+        </div>
+      </div>
+      <div><div class="slbl">🗺 Do</div>
+        <div class="do-list">
+          <div class="do-item"><a class="mlink" href="https://maps.google.com/?q=Plaza+de+los+Naranjos+Marbella" target="_blank" rel="noopener"><strong>Old Town walk</strong></a> <span class="dist drive dxs">🚗 15 min · 12km</span> — Calle Carmen, flower-draped alleys — before 9am for best light and no crowds</div>
+          <div class="do-item"><a class="mlink" href="https://maps.google.com/?q=Puerto+Banus+Marbella" target="_blank" rel="noopener"><strong>Puerto Banús</strong></a> <span class="dist drive dxs">🚗 22 min · 19km</span> — Megayacht pier walk + marina lunch or drink</div>
+          <div class="do-item"><a class="mlink" href="https://maps.google.com/?q=Puente+Romano+Hotel+Marbella" target="_blank" rel="noopener"><strong>Golden Mile + Puente Romano</strong></a> <span class="dist drive dxs">🚗 18 min · 15km</span> — Drive or walk the famous hotel stretch along the N-340</div>
+          <div class="do-item"><a class="mlink" href="https://maps.google.com/?q=Estepona+botanical+garden+Spain" target="_blank" rel="noopener"><strong>Estepona (optional)</strong></a> <span class="dist drive dxs">🚗 35 min · 28km</span> — Free botanical garden, flat for strollers, great Old Town if energy allows</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bday-card">
+    <div class="bday-hd"><span style="font-size:26px">🎂</span><h3>Friday, June 20 — Sofia's 1st Birthday</h3></div>
+    <div class="bday-bd">
+      <div class="overview">Today is Sofia's day. Her schedule leads, her mood sets the agenda. Beach, cake, golden hour photos at 7:30pm, birthday dinner. The Costa del Sol light in late June is extraordinary.</div>
+      <div class="panels">
+        <div class="panel panel-k"><div class="panel-title ptk">🧒 With Kids</div><ul><li>Pick up birthday cake at Pastelería San Lorenzo (ordered Jun 18 or 19)</li><li>Tell hotel at breakfast — they often bring a room decoration or baby amenity</li><li>Golden hour at 7:30pm on the beach — 30 minutes of photos in the best light of the trip</li><li>Sofia's nap schedule is the master calendar today</li></ul></div>
+        <div class="panel panel-a"><div class="panel-title pta">🍷 After Bedtime</div><ul><li>Cava or Champagne on the hotel terrace for the parents — you just survived a whole year</li><li>Late Old Town walk if energy allows</li></ul></div>
+      </div>
+      <div><div class="slbl">🥐 Birthday Bites</div>
+        <div class="bites-grid">
+          <div class="bite"><span class="bite-ico">🎂</span><strong><a class="mlink" href="https://maps.google.com/?q=Pasteleria+San+Lorenzo+Marbella" target="_blank" rel="noopener">Pastelería San Lorenzo cake</a> <span class="dist drive dxs">🚗 15 min · 12km</span></strong><span>Ordered Jun 18 or 19. Tell them it's a 1st birthday.</span></div>
+          <div class="bite"><span class="bite-ico">🍓</span><strong>Strawberries + cream</strong><span>From the chiringuito or hotel. Simple birthday treat.</span></div>
+          <div class="bite"><span class="bite-ico">🥂</span><strong>Cava for the adults</strong><span>You did a whole year. Toast yourselves.</span></div>
+        </div>
+      </div>
+      <div><div class="slbl">🍽 Eat</div>
+        <div class="eat-list">
+          <div class="eat-row"><div class="edot edot-bday"></div><div><div class="enr"><a class="mlink" href="https://maps.google.com/?q=Nobu+Marbella+Puerto+Banus" target="_blank" rel="noopener">Nobu Marbella</a><span class="dist drive">🚗 23 min · 19km</span></div><div class="eat-desc">Festive, buzzy, not stuffy. Japanese-Peruvian fusion, kids can eat here. Perfect for a birthday dinner.</div><div class="eat-note">⚠ Reserve now · mention Sofia's 1st birthday</div></div></div>
+          <div class="eat-row"><div class="edot edot-bday"></div><div><div class="enr"><span style="font-weight:500">Lunch: beach chiringuito</span> <span class="dist walk">🏖️ on-site</span></div><div class="eat-desc">Sofia's first birthday lunch should be at the beach. Outdoor, casual, she can be herself.</div></div></div>
+        </div>
+      </div>
+      <div><div class="slbl">🗺 Do</div>
+        <div class="do-list">
+          <div class="do-item"><a class="mlink" href="https://maps.google.com/?q=Pasteleria+San+Lorenzo+Marbella" target="_blank" rel="noopener"><strong>Birthday cake pickup</strong></a> <span class="dist drive dxs">🚗 15 min · 12km</span> — Call ahead, pick up on the way to the beach</div>
+          <div class="do-item"><a class="mlink" href="https://maps.google.com/?q=Gran+Marbella+Resort+beach" target="_blank" rel="noopener"><strong>Golden hour beach photos</strong></a> <span class="dist walk dxs">🚶 on-site</span> — 7:15–7:45pm, Costa del Sol June light. Everyone to the beach.</div>
+          <div class="do-item"><a class="mlink" href="https://maps.google.com/?q=Nobu+Marbella+Puerto+Banus" target="_blank" rel="noopener"><strong>Birthday dinner: Nobu Marbella</strong></a> <span class="dist drive dxs">🚗 22 min · 19km</span> — Reserve ahead, mention the birthday</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="drv-wrap" id="drive1">
+  <div class="drv-card">
+    <div class="drv-title">Drive Day 1 — Marbella to Valencia</div>
+    <div class="drv-sub">Saturday, Jun 21 · ~450km · Depart by 10am · Arrive MYR Palacio Vallier by 4pm</div>
+    <div class="drv-route">
+      <div class="drv-stop">Marbella</div><div class="drv-arr">→</div>
+      <div class="drv-stop">Frigiliana (45-60 min)</div><div class="drv-arr">→</div>
+      <div class="drv-stop">Nerja optional (20 min)</div><div class="drv-arr">→</div>
+      <div class="drv-stop">Valencia</div>
+    </div>
+    <div class="drv-body">
+      <div class="panels">
+        <div class="panel panel-k"><div class="panel-title ptk">🧒 With Kids</div><ul><li>Depart by 10am before the heat kicks in</li><li>Frigiliana: park at the base car park (€3) — upper village is steep cobblestones, use baby carrier not stroller. Keep stop to 45 min.</li><li>Nerja Balcón de Europa is flat and stroller-friendly if kids need to stretch</li><li>Valencia arrival: everyone tired — easy El Carmen wander, early dinner, no ambition</li></ul></div>
+        <div class="panel panel-a"><div class="panel-title pta">🍷 Without Kids</div><ul><li>Frigiliana upper village scramble (20 min) is genuinely beautiful without a stroller — narrow lanes, ceramic street art, sea views</li><li>Nerja: Balcón de Europa overlook and old town worth 30 min without stroller stress</li></ul></div>
+      </div>
+      <div><div class="slbl">🥐 Road Bites</div>
+        <div class="bites-grid">
+          <div class="bite"><span class="bite-ico">🍯</span><strong><a class="mlink" href="https://maps.google.com/?q=Frigiliana+honey+shops+Spain" target="_blank" rel="noopener">Frigiliana honey shops</a> <span class="dist drive dxs">🚗 2h 30min on route</span></strong><span>The village is famous for artisan honey, fig jam, miel de caña, almond sweets. Buy here.</span></div>
+          <div class="bite"><span class="bite-ico">🍊</span><strong>Fresh OJ or granizado · Frigiliana</strong><span>Any kiosk in Frigiliana. €2.</span></div>
+          <div class="bite"><span class="bite-ico">🥖</span><strong>Motorway bocadillo</strong><span>Spanish service station jamón y queso bocadillos are genuinely good.</span></div>
+        </div>
+      </div>
+      <div><div class="slbl">🌆 Valencia Arrival Evening</div>
+        <div class="drv-notes">
+          <div class="drv-note"><a class="mlink" href="https://maps.google.com/?q=Bar+Pilar+Valencia+tigres+mussels" target="_blank" rel="noopener">Bar Pilar</a> (El Carmen, Calle del Moro Zeit 13) <span class="dist walk dxs">🚶 5 min from hotel</span> — famous tigres (mussels in tomato sauce), €2/serving, standing bar</div>
+          <div class="drv-note"><a class="mlink" href="https://maps.google.com/?q=Casa+Montana+bodega+Valencia+El+Grao" target="_blank" rel="noopener">Casa Montaña</a> (El Grao) <span class="dist drive dxs">🚗 12 min from hotel</span> — wine bodega since 1836, pintxos-style tapas</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="rgn" id="val">
+  <div class="rgn-bar val"></div>
+  <div class="rgn-title">Valencia</div>
+  <div class="rgn-sub">Jun 21–25 · City of Arts, Paella, and the Best Market in Spain</div>
+  <div class="rgn-hotel val"><a class="mlink" href="https://maps.google.com/?q=MYR+Palacio+Vallier+Plaza+de+Manises+7+Valencia" target="_blank" rel="noopener">MYR Palacio Vallier</a> · Plaza de Manises 7, Historic Centre · Conf. 72071447474776</div>
+  <div class="rgn-logistics"><strong>Location context:</strong> Exceptionally central — <strong>Valencia Cathedral is 3 min walk, Mercado Central is 6 min walk</strong>, most of the Old Town is on foot. Ruzafa is 20 min walk or 8 min drive. City of Arts and Sciences is a 15-min drive (5.8km).</div>
+</div>
+<div class="days">
+
+  <div class="day">
+    <div class="day-head">
+      <div class="dbadge db-val"><div class="dn">22</div><div class="dm">Jun</div></div>
+      <div class="day-head-txt"><h3>Valencia: Parks, Markets + City Heart</h3><div class="dsub">Sunday · Mercado Central · Turia Park · Gulliver · El Carmen</div></div>
+    </div>
+    <div class="day-body">
+      <div class="overview">Start early at Mercado Central, then Horchatería Santa Catalina, the Cathedral exterior, and Turia Park with Gulliver in the afternoon. Valencia is flat, walkable, and built for families.</div>
+      <div class="panels">
+        <div class="panel panel-k"><div class="panel-title ptk">🧒 With Kids</div><ul><li>Mercado Central: arrive by 8:30am before crowds. Stroller works. Incredible sensory experience.</li><li>Turia Park is perfect for strollers — flat paved path on a dried riverbed. Rent a cargo bike or 4-seater pedal car near Gulliver.</li><li>Gulliver Park is free — giant Gulliver lets kids climb and slide all over him. Arrive before 10am.</li><li>Horchatería Santa Catalina: kids love horchata — sweet, cold, completely unlike anything at home</li></ul></div>
+        <div class="panel panel-a"><div class="panel-title pta">🍷 Without Kids</div><ul><li>Cathedral Micalet tower: 207 narrow steps — skip with baby carrier</li><li>Mercado Central deep browse alone: sample and buy without managing a stroller</li><li>Ruzafa evening solo — the neighborhood has a local energy that's hard to feel with kids</li></ul></div>
+      </div>
+      <div><div class="slbl">☕ Coffee</div>
+        <div class="coffee-row">
+          <div class="ccip"><a class="mlink" href="https://maps.google.com/?q=Federal+Cafe+Ruzafa+Valencia" target="_blank" rel="noopener"><strong>Federal Café</strong></a><span class="dist drive dxs">🚗 8 min · 1.5km</span> <em>Ruzafa · great food too</em></div>
+          <div class="ccip"><a class="mlink" href="https://maps.google.com/?q=Madame+Koffee+Valencia+Ruzafa" target="_blank" rel="noopener"><strong>Madame Koffee</strong></a><span class="dist drive dxs">🚗 8 min · 1.5km</span> <em>Ruzafa · specialty</em></div>
+          <div class="ccip"><a class="mlink" href="https://maps.google.com/?q=Bluebell+Coffee+Valencia" target="_blank" rel="noopener"><strong>Bluebell Coffee</strong></a><span class="dist walk dxs">🚶 8 min · 650m</span> <em>El Carmen area</em></div>
+        </div>
+      </div>
+      <div><div class="slbl">🥐 Bites + Sweets</div>
+        <div class="bites-grid">
+          <div class="bite"><span class="bite-ico">🥛</span><strong><a class="mlink" href="https://maps.google.com/?q=Horchateria+Santa+Catalina+Valencia" target="_blank" rel="noopener">Horchata + fartons</a> <span class="dist walk dxs">🚶 4 min · 350m</span></strong><span>Since 1836. Tiger nut milk + sweet elongated rolls to dip. THE Valencia thing. Non-negotiable.</span></div>
+          <div class="bite"><span class="bite-ico">🍊</span><strong><a class="mlink" href="https://maps.google.com/?q=Mercado+Central+Valencia" target="_blank" rel="noopener">Mercado Central fresh OJ</a> <span class="dist walk dxs">🚶 6 min · 450m</span></strong><span>€1/glass squeezed while you watch. First thing you buy inside.</span></div>
+          <div class="bite"><span class="bite-ico">🍙</span><strong><a class="mlink" href="https://maps.google.com/?q=Mercado+Central+Valencia" target="_blank" rel="noopener">Bomba de arroz</a> <span class="dist walk dxs">🚶 6 min · 450m</span></strong><span>Fried rice ball from a market stall. Valencia's original street food. €2.</span></div>
+          <div class="bite"><span class="bite-ico">🫒</span><strong><a class="mlink" href="https://maps.google.com/?q=Mercado+Central+Valencia" target="_blank" rel="noopener">Mercado olive tasting</a> <span class="dist walk dxs">🚶 6 min · 450m</span></strong><span>Ask any olive stall for samples. Buy a jar of manzanilla to eat throughout the trip.</span></div>
+          <div class="bite"><span class="bite-ico">🍩</span><strong>Buñuelos de calabaza</strong><span>Fried pumpkin fritters — Valencia's original street snack. Look for them near the market.</span></div>
+          <div class="bite"><span class="bite-ico">🧀</span><strong><a class="mlink" href="https://maps.google.com/?q=Mercado+Central+Valencia" target="_blank" rel="noopener">Croquetas · Mercado</a> <span class="dist walk dxs">🚶 6 min · 450m</span></strong><span>Jamón or bacalà croquetas from a market stall. Eat standing. €1.50 each.</span></div>
+        </div>
+      </div>
+      <div><div class="slbl">🍽 Eat</div>
+        <div class="eat-list">
+          <div class="eat-row"><div class="edot edot-val"></div><div><div class="enr"><a class="mlink" href="https://maps.google.com/?q=La+Pepica+Valencia+beach" target="_blank" rel="noopener">La Pepica</a><span class="dist drive">🚗 12 min · 4.5km</span></div><div class="eat-desc">Legendary paella restaurant on the beach. Hemingway ate here. Family-fine, genuinely great.</div></div></div>
+          <div class="eat-row"><div class="edot edot-val"></div><div><div class="enr"><a class="mlink" href="https://maps.google.com/?q=Canalla+Bistro+Valencia+Ruzafa" target="_blank" rel="noopener">Canalla Bistro</a><span class="dist drive">🚗 8 min · 1.5km</span></div><div class="eat-desc">Ricard Camarena's casual Ruzafa restaurant. Creative small plates, not a tasting menu.</div><div class="eat-note">⚠ Book ahead online</div></div></div>
+          <div class="eat-row"><div class="edot edot-val"></div><div><div class="enr"><a class="mlink" href="https://maps.google.com/?q=Bar+Pilar+Valencia+tigres" target="_blank" rel="noopener">Bar Pilar</a><span class="dist walk">🚶 5 min · 400m</span></div><div class="eat-desc">Famous tigres — mussels in spiced tomato sauce. Standing bar. €2/serving. Iconic.</div></div></div>
+        </div>
+      </div>
+      <div><div class="slbl">🗺 Do</div>
+        <div class="do-list">
+          <div class="do-item"><a class="mlink" href="https://maps.google.com/?q=Mercado+Central+Valencia" target="_blank" rel="noopener"><strong>Mercado Central</strong></a> <span class="dist walk dxs">🚶 6 min · 450m</span> — Arrive by 8-8:30am — all the halls, buy things to eat and take home</div>
+          <div class="do-item"><a class="mlink" href="https://maps.google.com/?q=Horchateria+Santa+Catalina+Valencia" target="_blank" rel="noopener"><strong>Horchatería Santa Catalina</strong></a> <span class="dist walk dxs">🚶 4 min · 350m</span> — Horchata + fartons. Non-negotiable Valencia rite of passage.</div>
+          <div class="do-item"><a class="mlink" href="https://maps.google.com/?q=Valencia+Cathedral+Spain" target="_blank" rel="noopener"><strong>Cathedral + Plaza de la Virgen</strong></a> <span class="dist walk dxs">🚶 3 min · 200m</span> — Exterior walk and the beautiful square — skip the interior queue with kids</div>
+          <div class="do-item"><a class="mlink" href="https://maps.google.com/?q=Gulliver+Park+Valencia+Turia" target="_blank" rel="noopener"><strong>Turia Park + Gulliver Park</strong></a> <span class="dist walk dxs">🚶 20 min · 1.5km</span> — Rent a cargo bike near Gulliver entrance — kids love the free sculpture park</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="day-head">
+      <div class="dbadge db-val"><div class="dn">23</div><div class="dm">Jun</div></div>
+      <div class="day-head-txt"><h3>L'Oceanogràfic + City of Arts and Sciences</h3><div class="dsub">Monday · Book online · Agua de Valencia at 7pm</div></div>
+    </div>
+    <div class="day-body">
+      <div class="overview">L'Oceanogràfic is one of the best aquariums in Europe. The Calatrava complex is free to walk around and architecturally extraordinary. End with Agua de Valencia at Café de las Horas.</div>
+      <div class="panels">
+        <div class="panel panel-k"><div class="panel-title ptk">🧒 With Kids</div><ul><li>L'Oceanogràfic: book online to skip queue (€35-40 adult, under 3 free). Allow 3-4 hours.</li><li>City of Arts complex: L'Umbracle free walkway is flat and stroller-perfect — the exteriors are the spectacle</li><li>No need to go inside L'Hemisfèric with kids — too long and dark for little ones</li><li>Bring snacks — food inside the complex is expensive</li></ul></div>
+        <div class="panel panel-a"><div class="panel-title pta">🍷 Without Kids</div><ul><li>L'Hemisfèric IMAX inside: 45-min dome film, stunning space</li><li>The complex in early morning light is spectacular with no crowds</li></ul></div>
+      </div>
+      <div><div class="slbl">☕ Coffee</div>
+        <div class="coffee-row">
+          <div class="ccip"><a class="mlink" href="https://maps.google.com/?q=Bluebell+Coffee+Valencia" target="_blank" rel="noopener"><strong>Bluebell Coffee</strong></a><span class="dist walk dxs">🚶 8 min · 650m</span> <em>Morning before the complex</em></div>
+          <div class="ccip"><a class="mlink" href="https://maps.google.com/?q=Cafe+de+las+Horas+Valencia+Agua+de+Valencia" target="_blank" rel="noopener"><strong>Café de las Horas</strong></a><span class="dist walk dxs">🚶 4 min · 350m</span> <em>7pm · Agua de Valencia · unmissable</em></div>
+        </div>
+      </div>
+      <div><div class="slbl">🥐 Bites + Sweets</div>
+        <div class="bites-grid">
+          <div class="bite"><span class="bite-ico">🍹</span><strong><a class="mlink" href="https://maps.google.com/?q=Cafe+de+las+Horas+Valencia" target="_blank" rel="noopener">Agua de Valencia</a> <span class="dist walk dxs">🚶 4 min · 350m</span></strong><span>Carrer dels Cavallers 7. OJ + cava + gin + vodka in the most ornate baroque café in Spain. 7pm.</span></div>
+          <div class="bite"><span class="bite-ico">🥛</span><strong><a class="mlink" href="https://maps.google.com/?q=Horchateria+Santa+Catalina+Valencia" target="_blank" rel="noopener">Afternoon horchata</a> <span class="dist walk dxs">🚶 4 min · 350m</span></strong><span>Stop on the way back if you didn't get it yesterday.</span></div>
+          <div class="bite"><span class="bite-ico">🧇</span><strong>Bring bakery snacks</strong><span>Pack from a bakery near the hotel — don't rely on on-site food.</span></div>
+        </div>
+      </div>
+      <div><div class="slbl">🍽 Eat</div>
+        <div class="eat-list">
+          <div class="eat-row"><div class="edot edot-val"></div><div><div class="enr"><a class="mlink" href="https://maps.google.com/?q=Canalla+Bistro+Valencia+Ruzafa" target="_blank" rel="noopener">Canalla Bistro</a><span class="dist drive">🚗 8 min · 1.5km</span></div><div class="eat-desc">Ricard Camarena's casual Ruzafa restaurant. Creative small plates, not a tasting menu.</div><div class="eat-note">⚠ Book ahead online</div></div></div>
+          <div class="eat-row"><div class="edot edot-val"></div><div><div class="enr"><span style="font-weight:500">Ruzafa terrace (walk-in)</span> <span class="dist drive">🚗 8 min · 1.5km</span></div><div class="eat-desc">The neighborhood has a dozen great terraces. Walk in and pick the most lively.</div></div></div>
+        </div>
+      </div>
+      <div><div class="slbl">🗺 Do</div>
+        <div class="do-list">
+          <div class="do-item"><a class="mlink" href="https://maps.google.com/?q=Oceanografic+Valencia+aquarium" target="_blank" rel="noopener"><strong>L'Oceanogràfic</strong></a> <span class="dist drive dxs">🚗 15 min · 5.8km</span> — Book online (under 3 free). Shark tunnel, beluga whales. Allow 3-4 hours.</div>
+          <div class="do-item"><a class="mlink" href="https://maps.google.com/?q=L'Umbracle+Valencia+City+of+Arts" target="_blank" rel="noopener"><strong>City of Arts: L'Umbracle</strong></a> <span class="dist drive dxs">🚗 15 min · 5.5km</span> — Free walkway with palms + sculpture — stroller-friendly, flat, spectacular architecture</div>
+          <div class="do-item"><a class="mlink" href="https://maps.google.com/?q=Cafe+de+las+Horas+Valencia" target="_blank" rel="noopener"><strong>Café de las Horas — Agua de Valencia</strong></a> <span class="dist walk dxs">🚶 4 min · 350m</span> — 7pm. Carrer dels Cavallers 7. The baroque interior alone is worth it.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="day-head">
+      <div class="dbadge db-val"><div class="dn">24</div><div class="dm">Jun</div></div>
+      <div class="day-head-txt"><h3>Playa El Saler + La Albufera</h3><div class="dsub">Tuesday · Best Valencia Beach · Rice Paddies · El Palmar paella</div></div>
+    </div>
+    <div class="day-body">
+      <div class="overview">Go south. Playa El Saler is the better beach — quieter, cleaner, pine shade nearby. La Albufera's rice paddy landscape is one of the most surreal things in Spain. El Palmar village is where Valencia paella actually comes from.</div>
+      <div class="panels">
+        <div class="panel panel-k"><div class="panel-title ptk">🧒 With Kids</div><ul><li>El Saler: Blue Flag, calmer water, pine tree shade access, easier parking than Malvarrosa</li><li>Rent umbrella + 2 loungers from the chiringuito (~€15) — worth it for the shade</li><li>La Albufera: bring mosquito repellent. Wetland environment. Non-negotiable with babies.</li><li>El Palmar village: outdoor terraces, kids can roam, relaxed pace</li></ul></div>
+        <div class="panel panel-a"><div class="panel-title pta">🍷 Without Kids</div><ul><li>Albufera boat tour: small wooden boat across the lagoon (€5-8, 30 min) — peaceful and atmospheric</li><li>Malvarrosa promenade has more adult city beach energy as an alternative</li></ul></div>
+      </div>
+      <div><div class="slbl">☕ Coffee</div>
+        <div class="coffee-row">
+          <div class="ccip"><a class="mlink" href="https://maps.google.com/?q=Federal+Cafe+Ruzafa+Valencia" target="_blank" rel="noopener"><strong>Federal or Bluebell</strong></a><span class="dist drive dxs">🚗 8 min</span> <em>Morning before heading south</em></div>
+        </div>
+      </div>
+      <div><div class="slbl">🥐 Bites + Sweets</div>
+        <div class="bites-grid">
+          <div class="bite"><span class="bite-ico">🐙</span><strong><a class="mlink" href="https://maps.google.com/?q=Playa+El+Saler+Valencia" target="_blank" rel="noopener">El Saler chiringuito</a> <span class="dist drive dxs">🚗 20 min · 12km</span></strong><span>Octopus a la gallega, gambas al ajillo, escalivada. Order 4 small plates and share.</span></div>
+          <div class="bite"><span class="bite-ico">🍚</span><strong><a class="mlink" href="https://maps.google.com/?q=El+Palmar+Valencia+restaurants" target="_blank" rel="noopener">Arròs a banda · El Palmar</a> <span class="dist drive dxs">🚗 25 min · 15km</span></strong><span>Rice cooked in fish stock, served with aioli. More honest than paella valenciana. €12.</span></div>
+          <div class="bite"><span class="bite-ico">🛒</span><strong><a class="mlink" href="https://maps.google.com/?q=El+Palmar+village+Valencia" target="_blank" rel="noopener">Buy arròs bomba to take home</a> <span class="dist drive dxs">🚗 25 min · 15km</span></strong><span>Best food souvenir of the trip. Any shop in El Palmar sells the genuine local rice.</span></div>
+        </div>
+      </div>
+      <div><div class="slbl">🍽 Eat</div>
+        <div class="eat-list">
+          <div class="eat-row"><div class="edot edot-val"></div><div><div class="enr"><a class="mlink" href="https://maps.google.com/?q=La+Matandeta+El+Palmar+Valencia" target="_blank" rel="noopener">La Matandeta</a><span class="dist drive">🚗 25 min · 15km</span></div><div class="eat-desc">Widely considered the best paella in the Valencia region. Rice paddies outside. Book ahead.</div><div class="eat-note">⚠ Book ahead</div></div></div>
+          <div class="eat-row"><div class="edot edot-val"></div><div><div class="enr"><a class="mlink" href="https://maps.google.com/?q=El+Palmar+Valencia+paella+restaurants" target="_blank" rel="noopener" style="font-weight:500">El Palmar village (walk-in)</a> <span class="dist drive">🚗 25 min · 15km</span></div><div class="eat-desc">Multiple authentic arròs restaurants. All good. Pick the one with the most locals.</div></div></div>
+        </div>
+      </div>
+      <div><div class="slbl">🗺 Do</div>
+        <div class="do-list">
+          <div class="do-item"><a class="mlink" href="https://maps.google.com/?q=Playa+El+Saler+Valencia+beach" target="_blank" rel="noopener"><strong>Playa El Saler</strong></a> <span class="dist drive dxs">🚗 20 min · 12km</span> — Full beach morning — umbrella + loungers from chiringuito</div>
+          <div class="do-item"><a class="mlink" href="https://maps.google.com/?q=La+Albufera+Valencia" target="_blank" rel="noopener"><strong>La Albufera rice paddies</strong></a> <span class="dist drive dxs">🚗 22 min · 13km</span> — Drive through the landscape south of Valencia (bring mosquito repellent)</div>
+          <div class="do-item"><a class="mlink" href="https://maps.google.com/?q=El+Palmar+village+Valencia" target="_blank" rel="noopener"><strong>El Palmar village</strong></a> <span class="dist drive dxs">🚗 25 min · 15km</span> — Paella lunch, browse the rice shops, buy arròs bomba to take home</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="day-head">
+      <div class="dbadge db-val"><div class="dn">25</div><div class="dm">Jun</div></div>
+      <div class="day-head-txt"><h3>Farewell Valencia — Bioparc + Mercat de Colón</h3><div class="dsub">Wednesday · Best zoo in Spain · Tile shopping · Final horchata</div></div>
+    </div>
+    <div class="day-body">
+      <div class="overview">Bioparc is genuinely the best zoo experience in Spain — open landscape, no bars. Mercat de Colón is a Belle Époque market hall perfect for a final pastry and coffee.</div>
+      <div class="panels">
+        <div class="panel panel-k"><div class="panel-title ptk">🧒 With Kids</div><ul><li>Bioparc opens 10am — arrive at opening. Open landscape (no bars or cages), very stroller-friendly. Under 3 free.</li><li>Mercat de Colón: beautiful glass-and-iron hall, stroller fine, café counters inside for pastries</li><li>Keep afternoon loose — kids may need a long nap before tomorrow's long drive</li></ul></div>
+        <div class="panel panel-a"><div class="panel-title pta">🍷 Without Kids</div><ul><li>Azulejo tile shopping in El Carmen: geometric tile panels and ceramics — great gifts</li><li>Ruzafa terrace for a final coffee or wine</li></ul></div>
+      </div>
+      <div><div class="slbl">☕ Coffee</div>
+        <div class="coffee-row">
+          <div class="ccip"><a class="mlink" href="https://maps.google.com/?q=Mercat+de+Colon+Valencia" target="_blank" rel="noopener"><strong>Mercat de Colón</strong></a><span class="dist walk dxs">🚶 12 min · 1km</span> <em>Belle Époque hall · beautiful for morning coffee</em></div>
+          <div class="ccip"><a class="mlink" href="https://maps.google.com/?q=Federal+Cafe+Ruzafa+Valencia" target="_blank" rel="noopener"><strong>Federal Café (final visit)</strong></a><span class="dist drive dxs">🚗 8 min · 1.5km</span> <em>Ruzafa</em></div>
+        </div>
+      </div>
+      <div><div class="slbl">🥐 Bites + Sweets</div>
+        <div class="bites-grid">
+          <div class="bite"><span class="bite-ico">🍰</span><strong><a class="mlink" href="https://maps.google.com/?q=Mercat+de+Colon+Valencia" target="_blank" rel="noopener">Mercat de Colón pastries</a> <span class="dist walk dxs">🚶 12 min · 1km</span></strong><span>Interior café counters have excellent pastries. The space itself is worth the trip.</span></div>
+          <div class="bite"><span class="bite-ico">🍪</span><strong>Pastissets</strong><span>Small traditional Valencian almond or sweet potato pastries. Buy a dozen for the drive tomorrow.</span></div>
+          <div class="bite"><span class="bite-ico">🥛</span><strong><a class="mlink" href="https://maps.google.com/?q=Horchateria+Santa+Catalina+Valencia" target="_blank" rel="noopener">Final horchata + fartons</a> <span class="dist walk dxs">🚶 4 min · 350m</span></strong><span>Horchatería Santa Catalina one last time. This is now a tradition.</span></div>
+        </div>
+      </div>
+      <div><div class="slbl">🍽 Eat</div>
+        <div class="eat-list">
+          <div class="eat-row"><div class="edot edot-val"></div><div><div class="enr"><a class="mlink" href="https://maps.google.com/?q=La+Pepica+Valencia+beach" target="_blank" rel="noopener">La Pepica</a><span class="dist drive">🚗 12 min · 4.5km</span></div><div class="eat-desc">Legendary paella restaurant on the beach. Hemingway ate here. Family-fine, genuinely great.</div></div></div>
+          <div class="eat-row"><div class="edot edot-val"></div><div><div class="enr"><a class="mlink" href="https://maps.google.com/?q=Bar+Pilar+Valencia+tigres" target="_blank" rel="noopener">Bar Pilar</a><span class="dist walk">🚶 5 min · 400m</span></div><div class="eat-desc">Famous tigres — mussels in spiced tomato sauce. Standing bar. €2/serving. Iconic.</div></div></div>
+        </div>
+      </div>
+      <div><div class="slbl">🗺 Do</div>
+        <div class="do-list">
+          <div class="do-item"><a class="mlink" href="https://maps.google.com/?q=Bioparc+Valencia+zoo" target="_blank" rel="noopener"><strong>Bioparc Valencia</strong></a> <span class="dist drive dxs">🚗 10 min · 3.5km</span> — Open landscape zoo, under 3 free, arrive at 10am — allow 2-3 hours</div>
+          <div class="do-item"><a class="mlink" href="https://maps.google.com/?q=Mercat+de+Colon+Valencia" target="_blank" rel="noopener"><strong>Mercat de Colón</strong></a> <span class="dist walk dxs">🚶 12 min · 1km</span> — Belle Époque market hall — coffee and pastries, stroller-fine</div>
+          <div class="do-item"><a class="mlink" href="https://maps.google.com/?q=El+Carmen+Valencia+tile+shops" target="_blank" rel="noopener"><strong>Azulejo tile shopping · El Carmen</strong></a> <span class="dist walk dxs">🚶 8 min · 600m</span> — Geometric tile panels and ceramics — good gifts</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="drv-wrap" id="drive2">
+  <div class="drv-card">
+    <div class="drv-title">Drive Day 2 — Valencia to San Sebastián</div>
+    <div class="drv-sub">Thursday, Jun 26 · ~550km · Depart 8am · Zaragoza stop · La Rioja · Arbaso by evening</div>
+    <div class="drv-route">
+      <div class="drv-stop">Valencia</div><div class="drv-arr">→</div>
+      <div class="drv-stop">Zaragoza (1.5-2 hrs)</div><div class="drv-arr">→</div>
+      <div class="drv-stop">La Rioja valley</div><div class="drv-arr">→</div>
+      <div class="drv-stop">San Sebastián</div>
+    </div>
+    <div class="drv-body">
+      <div class="panels">
+        <div class="panel panel-k"><div class="panel-title ptk">🧒 With Kids</div><ul><li>Depart 8am — the big drive, everyone needs the early start</li><li>Zaragoza: underground parking near Plaza del Pilar, Basílica del Pilar stroller-accessible (flat marble). El Tubo tapas quarter is 5-min walk from the Basílica.</li><li>Keep Zaragoza to 1.5-2 hours. The Basque foothills (A-12) are winding — prep for car sickness.</li><li>San Sebastián arrival: La Viña for cheesecake, Bar Gandarias, early night</li></ul></div>
+        <div class="panel panel-a"><div class="panel-title pta">🍷 Without Kids</div><ul><li>El Tubo Zaragoza: Bodegas Almau (morning vermouth), Bar Doña Casta (chistorra sausage), Casa Lac (since 1825)</li><li>La Rioja: AP-68 runs through wine country — Marqués de Riscal's Gehry building visible near Elciego</li></ul></div>
+      </div>
+      <div><div class="slbl">🥐 Zaragoza Bites</div>
+        <div class="bites-grid">
+          <div class="bite"><span class="bite-ico">🌭</span><strong><a class="mlink" href="https://maps.google.com/?q=El+Tubo+Zaragoza+tapas" target="_blank" rel="noopener">Chistorra · El Tubo</a> <span class="dist drive dxs">🚗 2h on route</span></strong><span>Thin Aragonese pork sausage, grilled. €2 at any bar. The Zaragoza street food.</span></div>
+          <div class="bite"><span class="bite-ico">🍩</span><strong>Tortas de anís</strong><span>Anise-flavored shortbread from any Zaragoza bakery. Buy a bag for the road.</span></div>
+          <div class="bite"><span class="bite-ico">🍫</span><strong>Chocolate con churros</strong><span>Before hitting the road north.</span></div>
+          <div class="bite"><span class="bite-ico">🍷</span><strong><a class="mlink" href="https://maps.google.com/?q=Bodegas+Almau+Zaragoza" target="_blank" rel="noopener">Morning vermouth · Bodegas Almau</a> <span class="dist drive dxs">🚗 2h on route</span></strong><span>Since the 1870s. Barrel-drawn vermouth at 10am is a Zaragoza tradition. It's fine.</span></div>
+        </div>
+      </div>
+      <div><div class="slbl">🌆 San Sebastián Arrival Evening</div>
+        <div class="drv-notes">
+          <div class="drv-note"><a class="mlink" href="https://maps.google.com/?q=La+Vina+restaurant+San+Sebastian+cheesecake" target="_blank" rel="noopener">La Viña</a> <span class="dist walk dxs">🚶 12 min from Arbaso</span> — burnt Basque cheesecake, the introduction to the city you deserve</div>
+          <div class="drv-note"><a class="mlink" href="https://maps.google.com/?q=Bar+Gandarias+San+Sebastian+Parte+Vieja" target="_blank" rel="noopener">Bar Gandarias</a> <span class="dist walk dxs">🚶 12 min from Arbaso</span> — classic pintxos bar, gentle introduction to the Parte Vieja</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="rgn" id="bas">
+  <div class="rgn-bar bas"></div>
+  <div class="rgn-title">San Sebastián</div>
+  <div class="rgn-sub">Jun 26–Jul 1 · Basque Country · Best Eating City in the World</div>
+  <div class="rgn-hotel bas"><a class="mlink" href="https://maps.google.com/?q=Arbaso+Hotel+Calle+Hondarribia+24+San+Sebastian" target="_blank" rel="noopener">Arbaso Hotel</a> · Calle Hondarribia 24, Centro (next to Cathedral)</div>
+  <div class="rgn-logistics"><strong>Location context:</strong> Right in the city centre, next to the Cathedral of the Good Shepherd. <strong>La Concha beach is an 8-min walk (600m)</strong>. <strong>Parte Vieja pintxos bars are 12-min walk (900m)</strong>. Monte Igueldo and Ondarreta Beach require a 7-12 min drive.</div>
+</div>
+<div class="days">
+
+  <div class="day">
+    <div class="day-head">
+      <div class="dbadge db-bas"><div class="dn">27</div><div class="dm">Jun</div></div>
+      <div class="day-head-txt"><h3>Old Town + La Concha Beach</h3><div class="dsub">Friday · First full Basque day · Pintxos crawl · La Concha swim</div></div>
+    </div>
+    <div class="day-body">
+      <div class="overview">La Concha is one of the great urban beaches in the world — a perfect protected bay, almost no waves, lifeguard all summer. The Parte Vieja pintxos scene is the best eating experience in Europe.</div>
+      <div class="panels">
+        <div class="panel panel-k"><div class="panel-title ptk">🧒 With Kids</div><ul><li>La Concha: protected bay with almost zero waves. The shallowest, safest beach in Spain for young kids. Lifeguard all summer.</li><li>Paseo de la Concha promenade is flat and stroller-perfect — 8-min walk from Arbaso</li><li>San Telmo Museum: stroller-accessible, kids often respond to the soaring main hall</li><li>Parte Vieja morning (before 10am): stroller manageable when streets are quiet</li></ul></div>
+        <div class="panel panel-a"><div class="panel-title pta">🍷 Without Kids — Evening Pintxos Crawl</div><ul><li>Standing at bars with a stroller is genuinely difficult. Send one parent with the kids while the other does the crawl at 7pm.</li><li>Route: Bar Txepetxa → Ganbara → La Cuchara → A Fuego Negro → La Viña</li><li>Budget €20-25 and 90 minutes. One pintxo per bar, move when you've had it.</li></ul></div>
+      </div>
+      <div><div class="slbl">☕ Coffee</div>
+        <div class="coffee-row">
+          <div class="ccip"><a class="mlink" href="https://maps.google.com/?q=Hizkuntza+cafe+San+Sebastian" target="_blank" rel="noopener"><strong>Hizkuntza</strong></a><span class="dist walk dxs">🚶 5 min · 400m</span> <em>Best in Basque Country · viennoiserie too</em></div>
+          <div class="ccip"><a class="mlink" href="https://maps.google.com/?q=Kafe+Botanika+San+Sebastian" target="_blank" rel="noopener"><strong>Kafe Botanika</strong></a><span class="dist walk dxs">🚶 8 min · 650m</span> <em>Relaxed · natural wine in the evening</em></div>
+        </div>
+      </div>
+      <div><div class="slbl">🥐 Bites + Sweets</div>
+        <div class="bites-grid">
+          <div class="bite"><span class="bite-ico">🥐</span><strong><a class="mlink" href="https://maps.google.com/?q=Hizkuntza+cafe+San+Sebastian" target="_blank" rel="noopener">Hizkuntza croissant / kouign amann</a> <span class="dist walk dxs">🚶 5 min · 400m</span></strong><span>The Basque Country's best viennoiserie. The butter is something else here.</span></div>
+          <div class="bite"><span class="bite-ico">🫒</span><strong><a class="mlink" href="https://maps.google.com/?q=Bar+Astelena+San+Sebastian" target="_blank" rel="noopener">Gilda · Bar Astelena</a> <span class="dist walk dxs">🚶 12 min · 900m</span></strong><span>The original pintxo (invented 1946). Olive + anchovy + guindilla pepper. €2.50.</span></div>
+          <div class="bite"><span class="bite-ico">🍰</span><strong><a class="mlink" href="https://maps.google.com/?q=La+Vina+San+Sebastian+cheesecake" target="_blank" rel="noopener">La Viña cheesecake</a> <span class="dist walk dxs">🚶 12 min · 900m</span></strong><span>Go before noon or after 2pm. €4/slice, take it to go. This is where it was invented.</span></div>
+          <div class="bite"><span class="bite-ico">🐟</span><strong><a class="mlink" href="https://maps.google.com/?q=Bar+Txepetxa+San+Sebastian" target="_blank" rel="noopener">Bar Txepetxa anchovies</a> <span class="dist walk dxs">🚶 12 min · 900m</span></strong><span>Cantabrian anchovies on bread, multiple styles. €2.50 each. A revelation.</span></div>
+          <div class="bite"><span class="bite-ico">🍮</span><strong><a class="mlink" href="https://maps.google.com/?q=Pasteleria+Otaegui+San+Sebastian" target="_blank" rel="noopener">Pantxineta</a> <span class="dist walk dxs">🚶 6 min · 450m</span></strong><span>Puff pastry with pastry cream and almonds. From Pastelería Otaegui, Calle San Marcial.</span></div>
+          <div class="bite"><span class="bite-ico">🍄</span><strong><a class="mlink" href="https://maps.google.com/?q=Ganbara+bar+San+Sebastian" target="_blank" rel="noopener">Ganbara mushroom pintxo</a> <span class="dist walk dxs">🚶 12 min · 900m</span></strong><span>Wild mushrooms with raw egg yolk on top. Order and eat immediately.</span></div>
+        </div>
+      </div>
+      <div><div class="slbl">🍽 Eat</div>
+        <div class="eat-list">
+          <div class="eat-row"><div class="edot edot-bas"></div><div><div class="enr"><a class="mlink" href="https://maps.google.com/?q=La+Cuchara+de+San+Telmo+San+Sebastian" target="_blank" rel="noopener">La Cuchara de San Telmo</a><span class="dist walk">🚶 12 min · 900m</span></div><div class="eat-desc">Creative new Basque cuisine pintxos. No reservation, tiny bar. Go at 7pm or 10pm.</div></div></div>
+          <div class="eat-row"><div class="edot edot-bas"></div><div><div class="enr"><a class="mlink" href="https://maps.google.com/?q=A+Fuego+Negro+San+Sebastian" target="_blank" rel="noopener">A Fuego Negro</a><span class="dist walk">🚶 12 min · 900m</span></div><div class="eat-desc">Modern, playful pintxos. Slightly more room than La Cuchara. Good second stop.</div></div></div>
+          <div class="eat-row"><div class="edot edot-bas"></div><div><div class="enr"><a class="mlink" href="https://maps.google.com/?q=Bodegun+Alejandro+San+Sebastian" target="_blank" rel="noopener">Bodegón Alejandro</a><span class="dist walk">🚶 12 min · 900m</span></div><div class="eat-desc">Classic Basque home cooking. Reservation recommended. Not a tasting menu.</div></div></div>
+        </div>
+      </div>
+      <div><div class="slbl">🗺 Do</div>
+        <div class="do-list">
+          <div class="do-item"><a class="mlink" href="https://maps.google.com/?q=La+Concha+beach+San+Sebastian" target="_blank" rel="noopener"><strong>La Concha beach</strong></a> <span class="dist walk dxs">🚶 8 min · 600m</span> — Calm protected bay, almost no waves, the best urban beach in Europe</div>
+          <div class="do-item"><a class="mlink" href="https://maps.google.com/?q=Paseo+de+la+Concha+San+Sebastian" target="_blank" rel="noopener"><strong>Paseo de la Concha walk</strong></a> <span class="dist walk dxs">🚶 8 min · 600m</span> — Belle Époque promenade along the bay</div>
+          <div class="do-item"><a class="mlink" href="https://maps.google.com/?q=San+Telmo+Museum+San+Sebastian" target="_blank" rel="noopener"><strong>San Telmo Museum</strong></a> <span class="dist walk dxs">🚶 12 min · 900m</span> — Stroller accessible, excellent Basque cultural history</div>
+          <div class="do-item"><a class="mlink" href="https://maps.google.com/?q=Parte+Vieja+San+Sebastian+Old+Town" target="_blank" rel="noopener"><strong>Parte Vieja pintxos crawl</strong></a> <span class="dist walk dxs">🚶 12 min · 900m</span> — One parent at a time — Bar Txepetxa → Ganbara → La Cuchara → A Fuego Negro → La Viña</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="day-head">
+      <div class="dbadge db-bas"><div class="dn">28</div><div class="dm">Jun</div></div>
+      <div class="day-head-txt"><h3>Ondarreta + Monte Igueldo + Peine del Viento</h3><div class="dsub">Saturday · 1912 funicular · Chillida sculptures · Bar Nestor solo mission</div></div>
+    </div>
+    <div class="day-body">
+      <div class="overview">Ondarreta beach, Monte Igueldo's retro funicular + amusement park, the Peine del Viento sculptures at the headland, and one parent's solo mission to sign the Bar Nestor list at 11am.</div>
+      <div class="panels">
+        <div class="panel panel-k"><div class="panel-title ptk">🧒 With Kids</div><ul><li>Monte Igueldo funicular: €4/person, kids under 2 free. Retro 1912 amusement park at the top — small rides perfect for young kids. Views of La Concha are extraordinary.</li><li>Peine del Viento: flat accessible path, kids can play on the smooth granite at low tide</li><li>Ondarreta: same calm bay as La Concha, slightly quieter, stroller fine on promenade</li></ul></div>
+        <div class="panel panel-a"><div class="panel-title pta">🍷 Without Kids — Bar Nestor Solo Mission</div><ul><li>CASH ONLY. Go at 11am to sign the in-person list. Queue forms before 11.</li><li>Just 2 massive txuletones per service (1pm and 9pm). €25-30/person split between 2-3.</li><li>It arrives alone on a wooden board with sea salt. That's it. Best beef in Spain.</li><li>Also: Zurriola surf beach (12-min walk from Arbaso) is the local adult beach</li></ul></div>
+      </div>
+      <div><div class="slbl">☕ Coffee</div>
+        <div class="coffee-row">
+          <div class="ccip"><a class="mlink" href="https://maps.google.com/?q=Cafe+de+la+Concha+San+Sebastian+terrace" target="_blank" rel="noopener"><strong>Café de la Concha</strong></a><span class="dist walk dxs">🚶 8 min · 600m</span> <em>Terrace with La Concha view · stroller fine outside</em></div>
+          <div class="ccip"><a class="mlink" href="https://maps.google.com/?q=Hizkuntza+cafe+San+Sebastian" target="_blank" rel="noopener"><strong>Hizkuntza</strong></a><span class="dist walk dxs">🚶 5 min · 400m</span> <em>Best in Basque Country</em></div>
+        </div>
+      </div>
+      <div><div class="slbl">🥐 Bites + Sweets</div>
+        <div class="bites-grid">
+          <div class="bite"><span class="bite-ico">🍬</span><strong><a class="mlink" href="https://maps.google.com/?q=Parte+Vieja+San+Sebastian+confiteria" target="_blank" rel="noopener">Tejas (almond brittle)</a> <span class="dist walk dxs">🚶 12 min · 900m</span></strong><span>The great San Sebastián sweet souvenir. Any confitería in Parte Vieja. Buy a tin.</span></div>
+          <div class="bite"><span class="bite-ico">🥧</span><strong><a class="mlink" href="https://maps.google.com/?q=Pasteleria+Otaegui+San+Sebastian" target="_blank" rel="noopener">Pastel vasco</a> <span class="dist walk dxs">🚶 6 min · 450m</span></strong><span>Buttery shortcrust with black cherry jam or vanilla custard. Pastelería Otaegui.</span></div>
+          <div class="bite"><span class="bite-ico">🧀</span><strong>Idiazabal wedge</strong><span>Smoky Basque sheep cheese. Ask any cheese shop to cut you a wedge.</span></div>
+          <div class="bite"><span class="bite-ico">🥩</span><strong><a class="mlink" href="https://maps.google.com/?q=Bar+Nestor+San+Sebastian" target="_blank" rel="noopener">Bar Nestor txuletón</a> <span class="dist walk dxs">🚶 12 min · 900m</span></strong><span>One parent, 11am signup. The whole point. Cash only.</span></div>
+        </div>
+      </div>
+      <div><div class="slbl">🍽 Eat</div>
+        <div class="eat-list">
+          <div class="eat-row"><div class="edot edot-bas"></div><div><div class="enr"><a class="mlink" href="https://maps.google.com/?q=Bar+Nestor+San+Sebastian+txuleton" target="_blank" rel="noopener">Bar Nestor</a><span class="dist walk">🚶 12 min · 900m</span></div><div class="eat-desc">The single best beef in Spain. CASH ONLY. Sign in person at 11am. 2 steaks per service.</div><div class="eat-note">⚠ In-person 11am signup · no reservations · cash only</div></div></div>
+          <div class="eat-row"><div class="edot edot-bas"></div><div><div class="enr"><a class="mlink" href="https://maps.google.com/?q=Branka+restaurant+Ondarreta+San+Sebastian" target="_blank" rel="noopener">Branka</a><span class="dist drive">🚗 7 min · 1.8km</span></div><div class="eat-desc">Beachfront Ondarreta. Terrace, family-friendly, good pintxos and main plates.</div></div></div>
+          <div class="eat-row"><div class="edot edot-bas"></div><div><div class="enr"><a class="mlink" href="https://maps.google.com/?q=Rekondo+San+Sebastian" target="_blank" rel="noopener">Rekondo</a><span class="dist drive">🚗 7 min · 2km</span></div><div class="eat-desc">Classic Basque with a legendary wine cave. Not a tasting menu. Book ahead.</div></div></div>
+        </div>
+      </div>
+      <div><div class="slbl">🗺 Do</div>
+        <div class="do-list">
+          <div class="do-item"><a class="mlink" href="https://maps.google.com/?q=Bar+Nestor+San+Sebastian" target="_blank" rel="noopener"><strong>11am: Bar Nestor signup</strong></a> <span class="dist walk dxs">🚶 12 min · 900m</span> — One parent goes in person. Queue forms before 11. Cash only. Essential.</div>
+          <div class="do-item"><a class="mlink" href="https://maps.google.com/?q=Playa+Ondarreta+San+Sebastian" target="_blank" rel="noopener"><strong>Ondarreta Beach</strong></a> <span class="dist drive dxs">🚗 7 min · 1.8km</span> — Quieter than La Concha, same calm bay</div>
+          <div class="do-item"><a class="mlink" href="https://maps.google.com/?q=Monte+Igueldo+funicular+San+Sebastian" target="_blank" rel="noopener"><strong>Monte Igueldo funicular</strong></a> <span class="dist drive dxs">🚗 12 min · 3.5km</span> — €4/person, kids under 2 free. 1912 park + extraordinary La Concha views.</div>
+          <div class="do-item"><a class="mlink" href="https://maps.google.com/?q=Peine+del+Viento+Chillida+San+Sebastian" target="_blank" rel="noopener"><strong>Peine del Viento</strong></a> <span class="dist drive dxs">🚗 8 min · 2.5km</span> — Chillida sculptures at the headland. Flat path, kids play on rocks at low tide.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="day-head">
+      <div class="dbadge db-bas"><div class="dn">29</div><div class="dm">Jun</div></div>
+      <div class="day-head-txt"><h3>France Day — St-Jean-de-Luz + Biarritz</h3><div class="dsub">Sunday · 35-50 min north · Maison Adam (1660) · Miremont (1872)</div></div>
+    </div>
+    <div class="day-body">
+      <div class="overview">Cross into France for the day. The French Basque Country has a completely different flavour. Note: EU car rental means France is fully covered — confirm your Sixt green card is in the glovebox.</div>
+      <div class="panels">
+        <div class="panel panel-k"><div class="panel-title ptk">🧒 With Kids</div><ul><li>St-Jean-de-Luz beach: small, calm, excellent for young children</li><li>La Grande Plage Biarritz: wide flat promenade, stroller-fine, lifeguard in summer</li><li>Les Halles covered market in Biarritz: stroller-friendly, great quick bites</li><li>Sixt EU coverage: France fully included in standard EU rental — green card in glovebox</li></ul></div>
+        <div class="panel panel-a"><div class="panel-title pta">🍷 Without Kids</div><ul><li>Rocher de la Vierge: dramatic rock arch walkway over crashing Atlantic</li><li>Miremont terrace alone: Belle Époque pâtisserie, sit with a café and mille-feuille as ocean crashes below</li><li>St-Jean-de-Luz port promenade in the evening: lively, beautiful, very French Basque</li></ul></div>
+      </div>
+      <div><div class="slbl">☕ Coffee + Pâtisserie</div>
+        <div class="coffee-row">
+          <div class="ccip"><a class="mlink" href="https://maps.google.com/?q=Miremont+patisserie+Biarritz" target="_blank" rel="noopener"><strong>Miremont · Biarritz</strong></a><span class="dist drive dxs">🚗 50 min · 50km</span> <em>Since 1872 · Belle Époque terrace · La Grande Plage view</em></div>
+          <div class="ccip"><a class="mlink" href="https://maps.google.com/?q=St+Jean+de+Luz+boulangerie" target="_blank" rel="noopener"><strong>Any boulangerie · St-Jean-de-Luz</strong></a><span class="dist drive dxs">🚗 35 min · 28km</span> <em>Pain au chocolat in France is a completely different experience</em></div>
+        </div>
+      </div>
+      <div><div class="slbl">🥐 Bites + Sweets</div>
+        <div class="bites-grid">
+          <div class="bite"><span class="bite-ico">🫐</span><strong><a class="mlink" href="https://maps.google.com/?q=Maison+Adam+St+Jean+de+Luz" target="_blank" rel="noopener">Maison Adam macarons</a> <span class="dist drive dxs">🚗 35 min · 28km</span></strong><span>Since 1660. Almond-based, rustic, extraordinary. The original Basque macaron — nothing like French macarons.</span></div>
+          <div class="bite"><span class="bite-ico">🎂</span><strong>Gâteau Basque</strong><span>Buttery almond shortcrust with black cherry jam or custard. From any boulangerie in either town. Buy a whole one.</span></div>
+          <div class="bite"><span class="bite-ico">🥐</span><strong>Pain au chocolat</strong><span>From any boulangerie. French butter transforms it. Eat one immediately.</span></div>
+          <div class="bite"><span class="bite-ico">🍰</span><strong><a class="mlink" href="https://maps.google.com/?q=Miremont+patisserie+Biarritz" target="_blank" rel="noopener">Miremont mille-feuille</a> <span class="dist drive dxs">🚗 50 min · 50km</span></strong><span>Biarritz, 1872. Terrace with La Grande Plage below. Order the mille-feuille or éclair.</span></div>
+          <div class="bite"><span class="bite-ico">🥩</span><strong><a class="mlink" href="https://maps.google.com/?q=Les+Halles+Biarritz+market" target="_blank" rel="noopener">Jambon de Bayonne + baguette</a> <span class="dist drive dxs">🚗 50 min · 50km</span></strong><span>Paper-thin Bayonne ham + cheese from Les Halles. The best picnic in France.</span></div>
+          <div class="bite"><span class="bite-ico">🌶</span><strong><a class="mlink" href="https://maps.google.com/?q=Les+Halles+Biarritz+market" target="_blank" rel="noopener">Espelette chocolate</a> <span class="dist drive dxs">🚗 50 min · 50km</span></strong><span>Dark chocolate with Espelette pepper from Les Halles. Buy several bars to bring home.</span></div>
+        </div>
+      </div>
+      <div><div class="slbl">🍽 Eat</div>
+        <div class="eat-list">
+          <div class="eat-row"><div class="edot edot-bas"></div><div><div class="enr"><a class="mlink" href="https://maps.google.com/?q=Cafe+Ramuntcho+St+Jean+de+Luz" target="_blank" rel="noopener">Café Ramuntcho · St-Jean-de-Luz</a><span class="dist drive">🚗 35 min · 28km</span></div><div class="eat-desc">Port view, classic French Basque fish, family-friendly. Good for a relaxed lunch.</div></div></div>
+          <div class="eat-row"><div class="edot edot-bas"></div><div><div class="enr"><a class="mlink" href="https://maps.google.com/?q=Le+Clos+Basque+Biarritz" target="_blank" rel="noopener">Le Clos Basque · Biarritz</a><span class="dist drive">🚗 50 min · 50km</span></div><div class="eat-desc">Classic French Basque, not a tasting menu, outdoor terrace.</div></div></div>
+          <div class="eat-row"><div class="edot edot-bas"></div><div><div class="enr"><a class="mlink" href="https://maps.google.com/?q=Les+Halles+Biarritz" target="_blank" rel="noopener">Les Halles picnic · Biarritz</a><span class="dist drive">🚗 50 min · 50km</span></div><div class="eat-desc">Jambon Bayonne + cheese + baguette from the market. Eat on La Grande Plage.</div></div></div>
+        </div>
+      </div>
+      <div><div class="slbl">🗺 Do</div>
+        <div class="do-list">
+          <div class="do-item"><a class="mlink" href="https://maps.google.com/?q=St+Jean+de+Luz+France" target="_blank" rel="noopener"><strong>St-Jean-de-Luz</strong></a> <span class="dist drive dxs">🚗 35 min · 28km</span> — Maison Adam macarons, Louis XIV church interior (he married here 1660), port promenade</div>
+          <div class="do-item"><a class="mlink" href="https://maps.google.com/?q=Biarritz+France" target="_blank" rel="noopener"><strong>Biarritz</strong></a> <span class="dist drive dxs">🚗 50 min · 50km</span> — Rocher de la Vierge, La Grande Plage promenade, Miremont, Les Halles</div>
+          <div class="do-item"><a class="mlink" href="https://maps.google.com/?q=Plage+de+St+Jean+de+Luz" target="_blank" rel="noopener"><strong>Beach time</strong></a> <span class="dist drive dxs">🚗 35 min · 28km</span> — The St-Jean-de-Luz beach is calm and excellent for young kids</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="day-head">
+      <div class="dbadge db-bas"><div class="dn">30</div><div class="dm">Jun</div></div>
+      <div class="day-head-txt"><h3>Getaria + Zumaia</h3><div class="dsub">Monday · Txakoli · Grilled fish · Flysch cliffs UNESCO geopark</div></div>
+    </div>
+    <div class="day-body">
+      <div class="overview">Two tiny Basque fishing towns, 20 min apart, 35-45 min from San Sebastián. Getaria for txakoli and the best grilled fish in the world. Zumaia for the flysch cliffs — 50 million years of geological layers visible, a UNESCO geopark, filmed for Game of Thrones.</div>
+      <div class="panels">
+        <div class="panel panel-k"><div class="panel-title ptk">🧒 With Kids</div><ul><li>Getaria: marina area is flat and easy — park at the marina. Cobblestones in the village are manageable.</li><li>Zumaia flysch cliffs: the Itzurun beach path brings you to the cliff base, stroller manages the flat beach section</li><li>Both towns are tiny — this is a half-day excursion</li><li>Elkano works with kids — it's à la carte grilled fish, not a formal tasting menu. Ask for a table with space.</li></ul></div>
+        <div class="panel panel-a"><div class="panel-title pta">🍷 Without Kids</div><ul><li>Elkano is the reason you came. Whole grilled turbot over charcoal, split between 2. À la carte, not a tasting menu. Book months ahead.</li><li>Txomin Etxaniz winery: txakoli poured from height over the sea — the Basque tradition</li></ul></div>
+      </div>
+      <div><div class="slbl">☕ Coffee</div>
+        <div class="coffee-row">
+          <div class="ccip"><a class="mlink" href="https://maps.google.com/?q=Getaria+cafe+Spain" target="_blank" rel="noopener"><strong>Getaria village café</strong></a><span class="dist drive dxs">🚗 35 min · 25km</span> <em>Any café on the main street before the fish</em></div>
+        </div>
+      </div>
+      <div><div class="slbl">🥐 Bites + Sweets</div>
+        <div class="bites-grid">
+          <div class="bite"><span class="bite-ico">🥂</span><strong><a class="mlink" href="https://maps.google.com/?q=Getaria+txakoli+bar+Spain" target="_blank" rel="noopener">Txakoli glass · Getaria</a> <span class="dist drive dxs">🚗 35 min · 25km</span></strong><span>€3/glass at any bar. Local sparkling white poured from height. Drink at the port.</span></div>
+          <div class="bite"><span class="bite-ico">🐟</span><strong><a class="mlink" href="https://maps.google.com/?q=Getaria+port+bar+anchovies" target="_blank" rel="noopener">Grilled anchovies · Getaria</a> <span class="dist drive dxs">🚗 35 min · 25km</span></strong><span>Boquerones a la plancha at any port bar. €4. The freshest anchovies of your life.</span></div>
+          <div class="bite"><span class="bite-ico">🍦</span><strong><a class="mlink" href="https://maps.google.com/?q=Zumaia+beach+heladeria" target="_blank" rel="noopener">Zumaia heladería</a> <span class="dist drive dxs">🚗 45 min · 35km</span></strong><span>Small gelato kiosk near Itzurun beach. Good reward after the cliff walk.</span></div>
+        </div>
+      </div>
+      <div><div class="slbl">🍽 Eat</div>
+        <div class="eat-list">
+          <div class="eat-row"><div class="edot edot-bas"></div><div><div class="enr"><a class="mlink" href="https://maps.google.com/?q=Elkano+restaurant+Getaria" target="_blank" rel="noopener">Elkano · Getaria</a><span class="dist drive">🚗 35 min · 25km</span></div><div class="eat-desc">À la carte grilled whole fish over charcoal. The rodaballo (turbot) for two is extraordinary. Not a tasting menu.</div><div class="eat-note">⚠ Book months ahead · info@restauranteelkano.com</div></div></div>
+          <div class="eat-row"><div class="edot edot-bas"></div><div><div class="enr"><a class="mlink" href="https://maps.google.com/?q=Kaia+Kaipe+restaurant+Getaria+Spain" target="_blank" rel="noopener">Kaia-Kaipe · Getaria</a><span class="dist drive">🚗 35 min · 25km</span></div><div class="eat-desc">Backup to Elkano. Same port views, equally excellent grilled fish.</div></div></div>
+        </div>
+      </div>
+      <div><div class="slbl">🗺 Do</div>
+        <div class="do-list">
+          <div class="do-item"><a class="mlink" href="https://maps.google.com/?q=Getaria+village+Spain" target="_blank" rel="noopener"><strong>Getaria village</strong></a> <span class="dist drive dxs">🚗 35 min · 25km</span> — Marina walk, Balenciaga Museum (optional), txakoli tasting at Txomin Etxaniz winery</div>
+          <div class="do-item"><a class="mlink" href="https://maps.google.com/?q=Zumaia+flysch+cliffs+UNESCO+geopark" target="_blank" rel="noopener"><strong>Zumaia flysch cliffs</strong></a> <span class="dist drive dxs">🚗 45 min · 35km</span> — UNESCO geopark, 50M years of geological layers. Itzurun beach path to the base.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="day-head">
+      <div class="dbadge db-bas"><div class="dn">1</div><div class="dm">Jul</div></div>
+      <div class="day-head-txt"><h3>Best of San Sebastián — Last Full Day</h3><div class="dsub">Tuesday · Monte Urgull · Final La Concha · Souvenirs · Grand farewell pintxos</div></div>
+    </div>
+    <div class="day-body">
+      <div class="overview">Last full day. Final swim, Monte Urgull fortress, buy everything good, and send everyone off with a full family pintxos run at 6:30pm — early enough for strollers, late enough that the bars are buzzing.</div>
+      <div class="panels">
+        <div class="panel panel-k"><div class="panel-title ptk">🧒 With Kids</div><ul><li>Monte Urgull: paved path starts behind Santa María Basilica — manageable with a carrier. Fortress + Christ statue at the top.</li><li>Final La Concha swim in the morning when the beach is quiet</li><li>Parte Vieja food shopping in the morning (before 11am) when strollers still manage</li><li>Family pintxos at 6:30-7pm — before the evening rush, strollers still workable</li></ul></div>
+        <div class="panel panel-a"><div class="panel-title pta">🍷 Without Kids</div><ul><li>Extended pintxos run if kids are settled early</li><li>Kafe Botanika: natural wine and pintxos, good solo spot</li><li>Rekondo if not done Jun 28 — the wine cave is unmissable</li></ul></div>
+      </div>
+      <div><div class="slbl">☕ Coffee</div>
+        <div class="coffee-row">
+          <div class="ccip"><a class="mlink" href="https://maps.google.com/?q=Hizkuntza+cafe+San+Sebastian" target="_blank" rel="noopener"><strong>Hizkuntza — final visit</strong></a><span class="dist walk dxs">🚶 5 min · 400m</span> <em>Make it count. Kouign amann + their best single origin.</em></div>
+        </div>
+      </div>
+      <div><div class="slbl">🥐 Final Bites + Souvenirs</div>
+        <div class="bites-grid">
+          <div class="bite"><span class="bite-ico">🧀</span><strong><a class="mlink" href="https://maps.google.com/?q=Parte+Vieja+San+Sebastian+cheese+shop" target="_blank" rel="noopener">Idiazabal cheese</a> <span class="dist walk dxs">🚶 12 min · 900m</span></strong><span>Buy vacuum-packed — travels well, lasts 2 weeks. Best food gift from the Basque Country.</span></div>
+          <div class="bite"><span class="bite-ico">🌶</span><strong><a class="mlink" href="https://maps.google.com/?q=Parte+Vieja+San+Sebastian" target="_blank" rel="noopener">Espelette pepper (ground)</a> <span class="dist walk dxs">🚶 12 min · 900m</span></strong><span>Buy 2-3 jars. You'll use it on everything for a year.</span></div>
+          <div class="bite"><span class="bite-ico">🍾</span><strong><a class="mlink" href="https://maps.google.com/?q=Parte+Vieja+San+Sebastian+shop" target="_blank" rel="noopener">Txakoli bottle</a> <span class="dist walk dxs">🚶 12 min · 900m</span></strong><span>One bottle to take home (check airline liquid restrictions).</span></div>
+          <div class="bite"><span class="bite-ico">🥃</span><strong><a class="mlink" href="https://maps.google.com/?q=Parte+Vieja+San+Sebastian" target="_blank" rel="noopener">Patxaran liqueur</a> <span class="dist walk dxs">🚶 12 min · 900m</span></strong><span>Basque sloe berry + anise liqueur. Unique to the region.</span></div>
+          <div class="bite"><span class="bite-ico">🍬</span><strong><a class="mlink" href="https://maps.google.com/?q=Parte+Vieja+San+Sebastian" target="_blank" rel="noopener">Tejas almond brittle</a> <span class="dist walk dxs">🚶 12 min · 900m</span></strong><span>A tin of tejas as a gift. Travel perfectly and last forever.</span></div>
+          <div class="bite"><span class="bite-ico">🍰</span><strong><a class="mlink" href="https://maps.google.com/?q=La+Vina+San+Sebastian+cheesecake" target="_blank" rel="noopener">La Viña — one last slice</a> <span class="dist walk dxs">🚶 12 min · 900m</span></strong><span>Go in the morning. Sit or take to the beach. You've earned it.</span></div>
+          <div class="bite"><span class="bite-ico">🫒</span><strong><a class="mlink" href="https://maps.google.com/?q=Bar+Astelena+San+Sebastian" target="_blank" rel="noopener">Final Gilda · Bar Astelena</a> <span class="dist walk dxs">🚶 12 min · 900m</span></strong><span>The original pintxo. End where the whole thing started, in 1946.</span></div>
+          <div class="bite"><span class="bite-ico">🥐</span><strong><a class="mlink" href="https://maps.google.com/?q=Pasteleria+Otaegui+San+Sebastian" target="_blank" rel="noopener">Final pantxineta</a> <span class="dist walk dxs">🚶 6 min · 450m</span></strong><span>One last puff pastry with custard and almonds. Pastelería Otaegui.</span></div>
+        </div>
+      </div>
+      <div><div class="slbl">🍽 Eat</div>
+        <div class="eat-list">
+          <div class="eat-row"><div class="edot edot-bas"></div><div><div class="enr"><a class="mlink" href="https://maps.google.com/?q=Parte+Vieja+San+Sebastian+pintxos+bars" target="_blank" rel="noopener" style="font-weight:500">Grand farewell: family pintxos crawl</a> <span class="dist walk">🚶 12 min · 900m</span></div><div class="eat-desc">All together, in the Parte Vieja, 6:30-7pm. Before the evening peak, strollers still workable. The right way to end.</div></div></div>
+          <div class="eat-row"><div class="edot edot-bas"></div><div><div class="enr"><a class="mlink" href="https://maps.google.com/?q=Narru+restaurant+Arbaso+San+Sebastian" target="_blank" rel="noopener">Narru</a><span class="dist walk">🚶 1 min · in hotel</span></div><div class="eat-desc">Basque classics, beautiful space, no tasting menu. Reserve ahead. In the hotel itself.</div></div></div>
+          <div class="eat-row"><div class="edot edot-bas"></div><div><div class="enr"><a class="mlink" href="https://maps.google.com/?q=Rekondo+San+Sebastian" target="_blank" rel="noopener">Rekondo</a><span class="dist drive">🚗 7 min · 2km</span></div><div class="eat-desc">Classic Basque with a legendary wine cave. Not a tasting menu. Book ahead.</div></div></div>
+        </div>
+      </div>
+      <div><div class="slbl">🗺 Do</div>
+        <div class="do-list">
+          <div class="do-item"><a class="mlink" href="https://maps.google.com/?q=La+Concha+beach+San+Sebastian" target="_blank" rel="noopener"><strong>Final La Concha swim</strong></a> <span class="dist walk dxs">🚶 8 min · 600m</span> — Morning, quiet beach. Let it last as long as it lasts.</div>
+          <div class="do-item"><a class="mlink" href="https://maps.google.com/?q=Monte+Urgull+San+Sebastian" target="_blank" rel="noopener"><strong>Monte Urgull + fortress</strong></a> <span class="dist walk dxs">🚶 15 min · 1.2km</span> — Behind Santa María Basilica. Paved start. Panorama of the entire bay.</div>
+          <div class="do-item"><a class="mlink" href="https://maps.google.com/?q=Parte+Vieja+San+Sebastian" target="_blank" rel="noopener"><strong>Parte Vieja food shopping</strong></a> <span class="dist walk dxs">🚶 12 min · 900m</span> — Morning (before 11am) — Idiazabal, Espelette, txakoli, patxaran, tejas</div>
+          <div class="do-item"><a class="mlink" href="https://maps.google.com/?q=Parte+Vieja+San+Sebastian" target="_blank" rel="noopener"><strong>Family pintxos 6:30pm</strong></a> <span class="dist walk dxs">🚶 12 min · 900m</span> — Everyone together. The right farewell.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="dep-wrap" id="dep">
+  <div class="dep-card">
+    <div class="dep-lbl-top">Departure</div>
+    <div class="dep-title">Wednesday, July 2</div>
+    <div class="dep-sub">Arbaso → Madrid Airport · 460km · AP-1 south · The Cooper Family goes home</div>
+    <div class="dep-grid">
+      <div class="dep-item"><div class="dep-item-lbl">Wake Up</div><div class="dep-item-val">5:00am</div><div class="dep-item-note">Leave Arbaso by 5:30am latest</div></div>
+      <div class="dep-item"><div class="dep-item-lbl">Drive</div><div class="dep-item-val">AP-1 / A-1</div><div class="dep-item-note">460km south · ~4.5 hours · Arrive MAD T4 by 10am</div></div>
+      <div class="dep-item"><div class="dep-item-lbl">Car Return</div><div class="dep-item-val">Sixt · T4</div><div class="dep-item-note">By 10:00am · Res. 9733734731</div></div>
+      <div class="dep-item"><div class="dep-item-lbl">Flight</div><div class="dep-item-val">DL0127</div><div class="dep-item-note">MAD T1 · departs 12:45pm · JFK T4 3:07pm</div></div>
+    </div>
+  </div>
+</div>
+<footer>
+  <span>España 2026 · The Cooper Family · Jun 16 – Jul 2</span>
+  <span>Marbella · Valencia · San Sebastián</span>
+  <span style="font-size:11px;opacity:.65">16 days · 3 cities · 1 first birthday · countless pintxos · a Gilda, a gâteau, and a burnt cheesecake</span>
+</footer>
+</body>
+</html>
